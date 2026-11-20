@@ -2,7 +2,7 @@
 
 An interactive, cinematic romantic storybook website crafted as a digital gift — built in a single self-contained HTML file with handcrafted SVG illustrations, smooth animations, optional Web Audio music box, and full Arabic RTL + mobile-first support.
 
-🔗 **[Live Demo](https://USERNAME.github.io/only-for-her/)**
+🔗 **[Live Demo]([https://USERNAME.github.io/only-for-her/](https://ziona-eta.vercel.app))**
 
 [preview/demo.gif]
 
