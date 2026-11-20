@@ -1,0 +1,2590 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>عالم معمول عشانكِ ♡ — لـ زينة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            blush: '#F8C8DC',
+            rose: '#EFA7BE',
+            crimson: '#C84B69',
+            cream: '#FFF8F3',
+            lavender: '#DCCAF5',
+            dusty: '#B76E79',
+            plum: '#392336',
+          },
+          fontFamily: {
+            display: ['"Aref Ruqaa"', '"Amiri"', 'serif'],
+            serifAr: ['"Amiri"', 'serif'],
+            body: ['"Tajawal"', 'sans-serif'],
+            enScript: ['"Cormorant Garamond"', 'serif'],
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root {
+      --blush: #F8C8DC;
+      --rose: #EFA7BE;
+      --crimson: #C84B69;
+      --cream: #FFF8F3;
+      --lavender: #DCCAF5;
+      --dusty: #B76E79;
+      --plum: #392336;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #FFF8F3;
+      color: var(--plum);
+      font-family: 'Tajawal', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Subtle storybook paper grain overlay */
+    .paper-grain::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 60;
+      opacity: 0.035;
+      background-image: radial-gradient(rgba(57, 35, 54, 0.55) 0.5px, transparent 0.5px);
+      background-size: 4px 4px;
+    }
+
+    /* Scene container */
+    .scene-stage {
+      position: relative;
+      width: 100%;
+      height: 100dvh;
+      overflow: hidden;
+    }
+
+    .scene {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(1.025);
+      transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
+      padding-top: calc(64px + var(--safe-top));
+      padding-bottom: calc(88px + var(--safe-bottom));
+      scrollbar-width: thin;
+      scrollbar-color: rgba(183, 110, 121, 0.35) transparent;
+    }
+
+    .scene.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1);
+      z-index: 10;
+    }
+
+    /* Distinct romantic atmospheres per scene */
+    .bg-scene-1 {
+      background:
+        radial-gradient(ellipse 85% 65% at 50% 25%, rgba(255, 248, 243, 0.95) 0%, rgba(248, 200, 220, 0.65) 55%, rgba(220, 202, 245, 0.45) 100%),
+        linear-gradient(180deg, #FFF5F7 0%, #FCE0EC 52%, #F4D5E8 100%);
+    }
+    .bg-scene-2 {
+      background:
+        radial-gradient(circle at 22% 18%, rgba(255, 244, 224, 0.85) 0%, transparent 45%),
+        radial-gradient(circle at 80% 30%, rgba(248, 200, 220, 0.6) 0%, transparent 50%),
+        linear-gradient(175deg, #FFF9F2 0%, #FDE7EF 48%, #F3D4E4 100%);
+    }
+    .bg-scene-3 {
+      background:
+        radial-gradient(ellipse 90% 55% at 50% 10%, rgba(255, 248, 243, 0.9) 0%, transparent 65%),
+        radial-gradient(circle at 85% 85%, rgba(220, 202, 245, 0.45) 0%, transparent 55%),
+        linear-gradient(180deg, #FDF2F6 0%, #F7DCE7 55%, #ECD4EC 100%);
+    }
+    .bg-scene-4 {
+      background:
+        radial-gradient(circle at 50% 35%, rgba(255, 250, 242, 0.96) 0%, rgba(247, 232, 224, 0.85) 55%, rgba(235, 206, 212, 0.7) 100%),
+        linear-gradient(165deg, #FFF9F4 0%, #F8E8E2 60%, #EFE0E4 100%);
+    }
+    .bg-scene-5 {
+      background:
+        radial-gradient(circle at 50% 20%, rgba(255, 248, 243, 0.95) 0%, rgba(249, 221, 234, 0.7) 58%, rgba(220, 202, 245, 0.55) 100%),
+        linear-gradient(180deg, #FFF6FA 0%, #F9E3EE 55%, #EADAF6 100%);
+    }
+    .bg-scene-6 {
+      background:
+        radial-gradient(ellipse 80% 55% at 75% 18%, rgba(140, 88, 152, 0.35) 0%, transparent 60%),
+        radial-gradient(ellipse 70% 50% at 20% 80%, rgba(200, 75, 105, 0.22) 0%, transparent 60%),
+        linear-gradient(180deg, #160D21 0%, #261634 48%, #392336 100%);
+      color: #FFF8F3;
+    }
+    .bg-scene-7 {
+      background:
+        radial-gradient(circle at 18% 22%, rgba(248, 200, 220, 0.42) 0%, transparent 45%),
+        radial-gradient(circle at 82% 75%, rgba(220, 202, 245, 0.38) 0%, transparent 50%),
+        linear-gradient(170deg, #FFF9F4 0%, #FAF0EB 55%, #F5E6EA 100%);
+    }
+    .bg-scene-8 {
+      background:
+        radial-gradient(circle at 50% 28%, rgba(255, 248, 243, 0.92) 0%, rgba(235, 218, 248, 0.52) 55%, rgba(248, 200, 220, 0.58) 100%),
+        linear-gradient(180deg, #FBF6FF 0%, #F5E4F4 55%, #F8DCE8 100%);
+    }
+    .bg-scene-9 {
+      background:
+        radial-gradient(circle at 50% 42%, rgba(200, 75, 105, 0.28) 0%, transparent 52%),
+        radial-gradient(ellipse 90% 60% at 50% 100%, rgba(122, 46, 84, 0.45) 0%, transparent 65%),
+        linear-gradient(180deg, #140B1D 0%, #23122C 45%, #371B32 100%);
+      color: #FFF8F3;
+    }
+
+    /* Typography helpers */
+    .font-display { font-family: 'Aref Ruqaa', 'Amiri', serif; }
+    .font-serif-ar { font-family: 'Amiri', serif; }
+    .font-en-script { font-family: 'Cormorant Garamond', serif; }
+
+    /* Glass & luxury paper surfaces */
+    .glass-card {
+      background: rgba(255, 248, 243, 0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      box-shadow:
+        0 18px 42px -16px rgba(57, 35, 54, 0.16),
+        0 4px 14px -4px rgba(200, 75, 105, 0.09),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85);
+    }
+
+    .glass-dark {
+      background: rgba(34, 18, 44, 0.62);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(248, 200, 220, 0.24);
+      box-shadow: 0 16px 40px -14px rgba(0, 0, 0, 0.48);
+    }
+
+    /* Primary romantic button */
+    .btn-romantic {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.9rem 2rem;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, #D85A79 0%, #C84B69 52%, #B53E5D 100%);
+      color: #FFF8F3;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.01em;
+      box-shadow:
+        0 12px 28px -8px rgba(200, 75, 105, 0.48),
+        0 2px 6px rgba(57, 35, 54, 0.12),
+        inset 0 1px 1px rgba(255, 255, 255, 0.4);
+      transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  box-shadow 0.28s ease,
+                  filter 0.25s ease;
+      cursor: pointer;
+      border: none;
+      outline: none;
+    }
+    .btn-romantic:hover {
+      transform: translateY(-2px) scale(1.025);
+      box-shadow:
+        0 16px 34px -8px rgba(200, 75, 105, 0.56),
+        inset 0 1px 1px rgba(255, 255, 255, 0.5);
+    }
+    .btn-romantic:active {
+      transform: translateY(1px) scale(0.98);
+    }
+    .btn-romantic:focus-visible,
+    .btn-soft:focus-visible,
+    button:focus-visible {
+      outline: 2.5px solid #C84B69;
+      outline-offset: 3px;
+    }
+
+    .btn-soft {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.72rem 1.35rem;
+      border-radius: 9999px;
+      background: rgba(255, 248, 243, 0.88);
+      color: var(--plum);
+      border: 1px solid rgba(183, 110, 121, 0.3);
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 8px 20px -10px rgba(57, 35, 54, 0.18);
+      transition: transform 0.26s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  background 0.2s ease,
+                  border-color 0.2s ease;
+      cursor: pointer;
+    }
+    .btn-soft:hover {
+      transform: translateY(-2px);
+      background: #FFFFFF;
+      border-color: rgba(200, 75, 105, 0.5);
+    }
+
+    /* Keyframe choreography */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) translateX(0px); }
+      50% { transform: translateY(-10px) translateX(4px); }
+    }
+    @keyframes cloudDrift {
+      0% { transform: translateX(0px); }
+      50% { transform: translateX(22px); }
+      100% { transform: translateX(0px); }
+    }
+    @keyframes bearBreathe {
+      0%, 100% { transform: translateY(0px) scaleY(1); }
+      50% { transform: translateY(-3px) scaleY(1.015); }
+    }
+    @keyframes bearBlink {
+      0%, 92%, 100% { transform: scaleY(1); }
+      95%, 97% { transform: scaleY(0.08); }
+    }
+    @keyframes bearHug {
+      0% { transform: scale(1) translateY(0); }
+      35% { transform: scale(1.07, 0.96) translateY(-6px); }
+      65% { transform: scale(1.04, 1.03) translateY(-4px); }
+      100% { transform: scale(1) translateY(0); }
+    }
+    @keyframes bearDance {
+      0%, 100% { transform: translateY(0) rotate(0deg) scale(1, 1); }
+      20% { transform: translateY(-12px) rotate(-5deg) scale(0.96, 1.05); }
+      45% { transform: translateY(2px) rotate(0deg) scale(1.05, 0.94); }
+      70% { transform: translateY(-14px) rotate(5deg) scale(0.96, 1.05); }
+      90% { transform: translateY(2px) rotate(0deg) scale(1.03, 0.96); }
+    }
+    @keyframes bearCelebrate {
+      0%, 100% { transform: translateY(0) scale(1); }
+      30% { transform: translateY(-20px) scale(1.06, 0.96); }
+      55% { transform: translateY(0) scale(0.96, 1.04); }
+      75% { transform: translateY(-12px) scale(1.03); }
+    }
+    @keyframes heartPulse {
+      0%, 100% { transform: scale(1); }
+      20% { transform: scale(1.28); }
+      35% { transform: scale(1.04); }
+      52% { transform: scale(1.22); }
+      70% { transform: scale(1); }
+    }
+    @keyframes roseSway {
+      0%, 100% { transform: rotate(-2.2deg); }
+      50% { transform: rotate(2.4deg); }
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.35; transform: scale(0.85); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+    @keyframes butterflyFlight {
+      0%, 100% { transform: translate(0, 0) rotate(-4deg); }
+      25% { transform: translate(18px, -14px) rotate(5deg); }
+      50% { transform: translate(34px, -4px) rotate(-3deg); }
+      75% { transform: translate(14px, 10px) rotate(4deg); }
+    }
+    @keyframes wingFlap {
+      0%, 100% { transform: scaleX(1); }
+      50% { transform: scaleX(0.32); }
+    }
+    @keyframes revealUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes handwrittenReveal {
+      0% { clip-path: inset(0 0 0 100%); opacity: 0.2; }
+      100% { clip-path: inset(0 0 0 0); opacity: 1; }
+    }
+    @keyframes petalFall {
+      0% { transform: translate3d(0, -10vh, 0) rotate(0deg); opacity: 0; }
+      12% { opacity: 0.85; }
+      88% { opacity: 0.75; }
+      100% { transform: translate3d(var(--drift, 45px), 108vh, 0) rotate(var(--spin, 320deg)); opacity: 0; }
+    }
+    @keyframes heartRise {
+      0% { transform: translateY(0) scale(0.5); opacity: 0; }
+      20% { opacity: 0.95; }
+      100% { transform: translateY(-95px) scale(1.15); opacity: 0; }
+    }
+    @keyframes jarWiggle {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-4deg) translateY(-3px); }
+      55% { transform: rotate(4deg) translateY(-2px); }
+      80% { transform: rotate(-2deg); }
+    }
+
+    .anim-float { animation: floatSlow 6s ease-in-out infinite; }
+    .anim-cloud { animation: cloudDrift 16s ease-in-out infinite; }
+    .anim-breathe { animation: bearBreathe 3.8s ease-in-out infinite; transform-origin: center bottom; }
+    .anim-blink { animation: bearBlink 4.6s ease-in-out infinite; transform-origin: center center; }
+    .anim-hug { animation: bearHug 1.2s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .anim-dance { animation: bearDance 1.05s ease-in-out 2; }
+    .anim-celebrate { animation: bearCelebrate 1.1s cubic-bezier(0.34, 1.56, 0.64, 1) infinite; }
+    .anim-heartbeat { animation: heartPulse 0.95s ease-in-out 2; transform-origin: center; }
+    .anim-sway { animation: roseSway 5.5s ease-in-out infinite; transform-origin: 50% 95%; }
+    .anim-butterfly { animation: butterflyFlight 11s ease-in-out infinite; }
+    .anim-wing { animation: wingFlap 0.36s ease-in-out infinite; transform-origin: center; }
+    .anim-reveal { animation: revealUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+    .anim-handwrite { animation: handwrittenReveal 1.65s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+    .anim-jar-wiggle { animation: jarWiggle 0.65s ease-in-out; }
+
+    /* Realistic 3D Envelope & Unfolding Letter */
+    .envelope-stage {
+      perspective: 1200px;
+    }
+    .envelope-shell {
+      position: relative;
+      width: min(350px, 88vw);
+      height: 235px;
+      margin: 0 auto;
+      transform-style: preserve-3d;
+      transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .envelope-flap {
+      transform-origin: top center;
+      transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+      backface-visibility: visible;
+    }
+    .envelope-open .envelope-flap {
+      transform: rotateX(175deg);
+      z-index: 1;
+    }
+    .wax-seal {
+      transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.45s ease;
+    }
+    .envelope-open .wax-seal {
+      transform: scale(1.4) rotate(22deg);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .letter-sheet-preview {
+      transition: transform 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.35s, opacity 0.5s ease 0.3s;
+    }
+    .envelope-open .letter-sheet-preview {
+      transform: translateY(-95px) scale(1.03);
+      opacity: 1;
+    }
+
+    /* Polaroid card styling */
+    .polaroid-card {
+      background: #FFFDFB;
+      padding: 12px 12px 26px 12px;
+      border-radius: 6px;
+      box-shadow:
+        0 14px 32px -12px rgba(57, 35, 54, 0.22),
+        0 2px 6px rgba(57, 35, 54, 0.08);
+      transition: transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+      position: relative;
+    }
+    .polaroid-card:hover {
+      transform: translateY(-8px) rotate(0deg) scale(1.02) !important;
+      box-shadow: 0 22px 44px -14px rgba(200, 75, 105, 0.28);
+      z-index: 5;
+    }
+
+    /* Ambient floating petals layer */
+    #ambient-petals {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 20;
+      overflow: hidden;
+    }
+    .petal-el {
+      position: absolute;
+      top: -40px;
+      will-change: transform;
+      animation: petalFall var(--dur, 12s) linear infinite;
+      animation-delay: var(--delay, 0s);
+    }
+
+    /* Burst particles overlay */
+    #burst-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 70;
+      overflow: hidden;
+    }
+
+    /* Transition bloom curtain */
+    #bloom-curtain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 55;
+      background: radial-gradient(circle at 50% 50%, rgba(255, 248, 243, 0.92) 0%, rgba(248, 200, 220, 0.85) 55%, rgba(220, 202, 245, 0.72) 100%);
+      opacity: 0;
+      transition: opacity 0.42s ease;
+    }
+    #bloom-curtain.show {
+      opacity: 1;
+    }
+
+    /* Rose interactive glow */
+    .rose-btn {
+      transition: transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.35s ease;
+    }
+    .rose-btn:hover {
+      transform: translateY(-6px) scale(1.06);
+      filter: drop-shadow(0 12px 18px rgba(200, 75, 105, 0.26));
+    }
+    .rose-btn.discovered {
+      filter: drop-shadow(0 0 14px rgba(200, 75, 105, 0.32));
+    }
+
+    /* Reduced motion accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.15s !important;
+      }
+      #ambient-petals { display: none; }
+    }
+  </style>
+</head>
+<body class="paper-grain select-none">
+
+  <!-- Ambient drifting petals -->
+  <div id="ambient-petals" aria-hidden="true"></div>
+
+  <!-- Burst particle layer (hearts, petals, sparkles) -->
+  <div id="burst-layer" aria-hidden="true"></div>
+
+  <!-- Soft floral transition veil -->
+  <div id="bloom-curtain" aria-hidden="true"></div>
+
+  <!-- Top Minimal Story Header -->
+  <header id="top-bar" class="fixed top-0 inset-x-0 z-40 px-4 sm:px-6 flex items-center justify-between transition-colors duration-500" style="padding-top: calc(12px + var(--safe-top)); padding-bottom: 10px;">
+    <div class="flex items-center gap-2.5">
+      <button id="brand-home-btn" type="button" class="flex items-center gap-2 rounded-full px-3 py-1.5 glass-card text-xs sm:text-sm font-bold text-plum hover:scale-105 transition-transform" aria-label="العودة لبداية الحكاية">
+        <svg class="w-4 h-4 text-crimson" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+        <span id="site-title-badge">عالم معمول عشانكِ</span>
+      </button>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <!-- Secret Heart Rain Trigger (subtle sparkling blossom icon) -->
+      <button id="heart-rain-btn" type="button" title="مطر قلوب صغير" aria-label="تشغيل مطر القلوب والورود" class="w-9 h-9 rounded-full glass-card flex items-center justify-center text-crimson hover:scale-110 transition-transform">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3l1.9 4.6L19 9.5l-4.2 3.2L16 18l-4-2.6L8 18l1.2-5.3L5 9.5l5.1-1.9L12 3z"/>
+        </svg>
+      </button>
+
+      <!-- Sound Toggle -->
+      <button id="sound-toggle-btn" type="button" aria-pressed="false" aria-label="تشغيل أو إيقاف الموسيقى الهادئة" class="flex items-center gap-1.5 rounded-full px-3 py-1.5 glass-card text-xs sm:text-sm font-medium text-plum hover:scale-105 transition-transform">
+        <svg id="sound-icon-off" class="w-4 h-4 text-dusty" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <line x1="23" y1="9" x2="17" y2="15"></line>
+          <line x1="17" y1="9" x2="23" y2="15"></line>
+        </svg>
+        <svg id="sound-icon-on" class="w-4 h-4 text-crimson hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+        </svg>
+        <span id="sound-label" class="hidden sm:inline">الصوت</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mini Teddy Companion (appears from Scene 2 to 8) -->
+  <div id="mini-companion" class="fixed left-3 sm:left-5 bottom-20 sm:bottom-24 z-30 flex items-end gap-2 transition-all duration-500 opacity-0 pointer-events-none translate-y-4">
+    <button id="mini-companion-btn" type="button" aria-label="الدبدوب المرافق" class="relative group focus:outline-none">
+      <div id="mini-companion-bubble" class="hidden absolute bottom-full left-0 mb-2 w-44 sm:w-52 px-3 py-2 rounded-2xl rounded-bl-sm glass-card text-xs sm:text-sm text-plum font-medium leading-relaxed shadow-lg text-right"></div>
+      <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full glass-card flex items-center justify-center p-1 shadow-md group-hover:scale-110 transition-transform" id="mini-teddy-mount"></div>
+    </button>
+  </div>
+
+  <!-- MAIN STORY STAGE -->
+  <main class="scene-stage" id="scene-stage">
+
+    <!-- ===================================================== -->
+    <!-- SCENE 1: OPENING — "مستنية مفاجأة؟"                   -->
+    <!-- ===================================================== -->
+    <section id="scene-1" class="scene bg-scene-1 active flex flex-col items-center justify-center px-4 text-center" aria-label="المشهد الافتتاحي">
+      <!-- Layered fairytale clouds & glow -->
+      <div class="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden="true">
+        <svg class="absolute -top-6 -right-12 w-72 sm:w-96 opacity-65 anim-cloud" viewBox="0 0 360 150" fill="none">
+          <path d="M40 120C18 120 5 102 12 83C18 67 35 61 50 65C59 38 89 22 122 28C145 10 185 10 208 32C236 25 268 41 278 66C305 63 332 82 330 105C328 122 310 130 290 130H40V120Z" fill="url(#cloudGrad1)"/>
+          <defs>
+            <linearGradient id="cloudGrad1" x1="0" y1="0" x2="0" y2="140" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFFFFF" stop-opacity="0.92"/>
+              <stop offset="1" stop-color="#F8C8DC" stop-opacity="0.4"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <svg class="absolute top-16 -left-16 w-64 sm:w-80 opacity-55 anim-cloud" style="animation-delay:-6s" viewBox="0 0 320 130" fill="none">
+          <path d="M32 108C12 108 4 91 12 75C19 61 36 58 48 61C58 34 90 22 119 32C142 15 178 18 197 40C224 34 256 49 262 74C284 74 302 90 296 108H32Z" fill="#FFF8F3" fill-opacity="0.82"/>
+        </svg>
+        <!-- Soft horizon garden hills -->
+        <svg class="absolute bottom-0 inset-x-0 w-full h-36 sm:h-44 opacity-60" preserveAspectRatio="none" viewBox="0 0 1440 200" fill="none">
+          <path d="M0 125C260 40 520 175 820 100C1080 35 1290 85 1440 120V200H0V125Z" fill="#F8C8DC" fill-opacity="0.55"/>
+          <path d="M0 155C320 95 620 190 980 130C1200 92 1350 130 1440 148V200H0V155Z" fill="#EFA7BE" fill-opacity="0.38"/>
+        </svg>
+      </div>
+
+      <div class="relative z-10 max-w-xl w-full flex flex-col items-center gap-4 sm:gap-5 my-auto py-4">
+        <span class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white/70 border border-blush/80 text-xs sm:text-sm font-medium text-dusty shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-crimson animate-pulse"></span>
+          <span>مخصوص ليكي يا زينة</span>
+          <span class="font-en-script italic text-crimson/90">Only For Zeina</span>
+        </span>
+
+        <!-- Opening Teddy Bear holding rose bouquet -->
+        <div class="relative flex items-center justify-center">
+          <div class="absolute w-56 h-56 sm:w-64 sm:h-64 rounded-full bg-white/60 blur-2xl" aria-hidden="true"></div>
+          <div id="opening-teddy-mount" class="relative w-52 h-52 sm:w-64 sm:h-64 transition-transform duration-700"></div>
+          <div id="opening-hearts" class="pointer-events-none absolute -top-2 inset-x-0 flex justify-center gap-4"></div>
+        </div>
+
+        <!-- Staggered poetic lines -->
+        <div class="space-y-2.5 min-h-[118px] sm:min-h-[128px] flex flex-col items-center justify-center">
+          <p id="open-line-1" class="font-display text-2xl sm:text-4xl text-plum opacity-0 transition-all duration-700 translate-y-3">
+            استني بس…
+          </p>
+          <p id="open-line-2" class="font-serif-ar text-lg sm:text-2xl text-plum/90 opacity-0 transition-all duration-700 translate-y-3">
+            في حد عاملّك مفاجأة صغيرة…
+          </p>
+          <p id="open-line-3" class="text-sm sm:text-lg text-crimson font-semibold opacity-0 transition-all duration-700 translate-y-3">
+            بس الحقيقة… إنتِ تستاهلي الدنيا كلها.
+          </p>
+        </div>
+
+        <button id="start-journey-btn" type="button" class="btn-romantic opacity-0 translate-y-3 transition-all duration-700 text-base sm:text-lg px-8 py-3.5">
+          <span>طب ورّيني المفاجأة</span>
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- SCENE 2: PERSONALIZED WELCOME — "أهلًا يا زينة"       -->
+    <!-- ===================================================== -->
+    <section id="scene-2" class="scene bg-scene-2 flex flex-col items-center justify-center px-4 text-center" aria-label="مشهد الترحيب">
+      <!-- Illustrated sunlit garden & butterflies -->
+      <div class="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden="true">
+        <!-- Warm sunbeam halo -->
+        <div class="absolute -top-24 right-1/4 w-96 h-96 rounded-full bg-amber-100/50 blur-3xl"></div>
+        <!-- Butterflies -->
+        <svg class="absolute top-24 right-[14%] w-10 h-10 text-crimson/70 anim-butterfly" viewBox="0 0 48 48" fill="none">
+          <g class="anim-wing">
+            <path d="M24 24C16 12 4 12 6 22C8 30 18 29 24 24Z" fill="#EFA7BE"/>
+            <path d="M24 24C32 12 44 12 42 22C40 30 30 29 24 24Z" fill="#F8C8DC"/>
+            <path d="M24 25C17 27 11 35 16 39C20 42 23 34 24 25Z" fill="#C84B69" fill-opacity="0.65"/>
+            <path d="M24 25C31 27 37 35 32 39C28 42 25 34 24 25Z" fill="#C84B69" fill-opacity="0.65"/>
+          </g>
+          <rect x="23" y="17" width="2" height="15" rx="1" fill="#392336"/>
+        </svg>
+        <svg class="absolute top-40 left-[15%] w-8 h-8 anim-butterfly" style="animation-delay:-4s" viewBox="0 0 48 48" fill="none">
+          <g class="anim-wing">
+            <path d="M24 24C16 12 4 12 6 22C8 30 18 29 24 24Z" fill="#DCCAF5"/>
+            <path d="M24 24C32 12 44 12 42 22C40 30 30 29 24 24Z" fill="#EFA7BE"/>
+          </g>
+          <rect x="23" y="18" width="2" height="13" rx="1" fill="#392336"/>
+        </svg>
+        <!-- Garden arch silhouette & rolling meadow -->
+        <svg class="absolute bottom-0 inset-x-0 w-full h-44 sm:h-52 opacity-80" preserveAspectRatio="none" viewBox="0 0 1440 240" fill="none">
+          <path d="M0 145C280 75 560 190 880 120C1140 65 1320 110 1440 135V240H0V145Z" fill="#F4D3E1" fill-opacity="0.65"/>
+          <path d="M0 182C360 125 690 215 1040 155C1240 120 1370 150 1440 165V240H0V182Z" fill="#E9B8CC" fill-opacity="0.5"/>
+        </svg>
+      </div>
+
+      <div class="relative z-10 max-w-2xl w-full my-auto py-4">
+        <div class="glass-card rounded-[2rem] px-6 py-8 sm:px-10 sm:py-11 relative overflow-hidden">
+          <!-- Floral corner ornament -->
+          <svg class="absolute -top-4 -right-4 w-24 h-24 opacity-40 pointer-events-none" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+            <circle cx="70" cy="30" r="22" fill="#F8C8DC"/>
+            <circle cx="52" cy="22" r="14" fill="#EFA7BE"/>
+            <path d="M35 52C48 40 60 36 74 34" stroke="#B76E79" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+
+          <p class="font-en-script italic text-dusty text-base sm:text-lg tracking-wider mb-2">Welcome to Your Little World</p>
+
+          <h1 class="font-display text-3xl sm:text-5xl text-plum leading-snug mb-4">
+            أهلًا بأجمل صدفة حصلت في حياتي ♡
+          </h1>
+
+          <p class="font-serif-ar text-lg sm:text-2xl text-plum/85 leading-relaxed max-w-lg mx-auto mb-7">
+            المكان ده مش مجرد موقع…<br/>
+            ده حتة صغيرة من قلبي، عملتها مخصوص عشانكِ.
+          </p>
+
+          <!-- Personalized Handwritten Name Reveal -->
+          <div class="relative inline-block px-7 py-4 rounded-2xl bg-gradient-to-l from-blush/40 via-cream/90 to-lavender/35 border border-rose/40 shadow-inner mb-7">
+            <div id="welcome-name-reveal" class="font-display text-2xl sm:text-4xl text-crimson">
+              إلى <span class="underline decoration-rose/70 decoration-wavy underline-offset-8">زينة</span>… أجمل حاجة في دنيتي.
+            </div>
+            <div class="font-en-script italic text-sm sm:text-base text-dusty mt-1.5 tracking-widest">
+              For Zeina — Always &amp; Forever
+            </div>
+          </div>
+
+          <p class="text-xs sm:text-sm text-plum/65 mb-6 max-w-md mx-auto">
+            في وسط العالم كله، عملتلك عالم صغير مخصوص… عشان أقولك إنتِ قد إيه غالية عندي.
+          </p>
+
+          <div class="flex flex-wrap items-center justify-center gap-3">
+            <button type="button" data-goto="3" class="btn-romantic">
+              <span>ندخل حديقة الورد</span>
+              <span aria-hidden="true">←</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- SCENE 3: INTERACTIVE ROSE GARDEN — "كل وردة وراها كلام"-->
+    <!-- ===================================================== -->
+    <section id="scene-3" class="scene bg-scene-3 flex flex-col items-center px-4" aria-label="حديقة الورد التفاعلية">
+      <div class="relative z-10 max-w-4xl w-full my-auto py-4 text-center">
+        <p class="font-en-script italic text-dusty text-sm sm:text-base tracking-wider">Every Rose Holds a Secret</p>
+        <h2 class="font-display text-3xl sm:text-4xl text-plum mt-1">كل وردة وراها كلام</h2>
+        <p class="text-sm sm:text-base text-plum/75 mt-2 mb-5">
+          اضغطي على كل وردة عشان تتفتح وتقرئي الرسالة اللي مستخبية جواها يا زينة.
+        </p>
+
+        <!-- Progress pill -->
+        <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full glass-card text-xs sm:text-sm font-semibold text-plum mb-6">
+          <span>الوردات اللي اكتشفتيها:</span>
+          <span id="rose-progress-count" class="text-crimson font-bold">0 / 8</span>
+          <div class="w-24 h-2 rounded-full bg-blush/50 overflow-hidden">
+            <div id="rose-progress-bar" class="h-full bg-gradient-to-l from-crimson to-rose rounded-full transition-all duration-500" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <!-- 8 Interactive Roses Grid -->
+        <div id="roses-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-3xl mx-auto mb-6"></div>
+
+        <!-- Secret 9th Rose (unlocked after discovering all 8) -->
+        <div id="secret-rose-wrap" class="hidden max-w-md mx-auto mb-6">
+          <button id="secret-rose-btn" type="button" class="w-full glass-card rounded-3xl p-4 sm:p-5 border-2 border-amber-300/80 shadow-xl flex flex-col sm:flex-row items-center justify-center gap-4 hover:scale-[1.02] transition-transform">
+            <div id="secret-rose-svg" class="w-20 h-20 flex-shrink-0"></div>
+            <div class="text-center sm:text-right">
+              <span class="inline-block text-xs font-bold text-amber-700 bg-amber-100/90 px-2.5 py-0.5 rounded-full mb-1">سرّ الحديقة</span>
+              <p class="font-display text-lg sm:text-xl text-crimson">لسه فيه وردة أخيرة… مختلفة عن الباقي.</p>
+              <p class="text-xs text-plum/70 mt-0.5">اضغطي عليها عشان تفتحيها</p>
+            </div>
+          </button>
+        </div>
+
+        <!-- Easter Egg #1: Hidden Heart tucked behind a tiny blossom -->
+        <div class="flex items-center justify-between max-w-3xl mx-auto mt-2 px-2">
+          <button id="hidden-heart-btn" type="button" aria-label="قلب صغير مخبأ خلف الزهرة" title="حاجة صغيرة مستخبية هنا" class="group relative p-2 opacity-55 hover:opacity-100 transition-opacity">
+            <svg class="w-7 h-7 text-crimson/70 group-hover:text-crimson group-hover:scale-125 transition-transform" viewBox="0 0 32 32" fill="none">
+              <circle cx="10" cy="18" r="6" fill="#F8C8DC"/>
+              <circle cx="20" cy="19" r="5" fill="#EFA7BE"/>
+              <path d="M16 20.5l-1-0.9C11.6 16.5 9.5 14.5 9.5 12c0-2 1.5-3.5 3.5-3.5 1.2 0 2.3.6 3 1.5.7-.9 1.8-1.5 3-1.5 2 0 3.5 1.5 3.5 3.5 0 2.5-2.1 4.5-5.5 7.6L16 20.5z" fill="#C84B69"/>
+            </svg>
+          </button>
+          <button type="button" data-goto="4" class="btn-soft">
+            <span>الجواب مستنيكي</span>
+            <span aria-hidden="true">←</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- SCENE 4: THE MAGIC LOVE LETTER — "جواب من قلبي"       -->
+    <!-- ===================================================== -->
+    <section id="scene-4" class="scene bg-scene-4 flex flex-col items-center justify-center px-4" aria-label="الجواب السحري">
+      <div class="relative z-10 max-w-2xl w-full my-auto py-4 text-center">
+        <p class="font-en-script italic text-dusty text-sm sm:text-base tracking-wider">A Letter Sealed With Love</p>
+        <h2 class="font-display text-3xl sm:text-4xl text-plum mt-1 mb-2">جواب من قلبي</h2>
+        <p id="envelope-hint" class="text-sm sm:text-base text-plum/75 mb-7">
+          ظرف صغير معمول مخصوص ليكي… اضغطي على الختم عشان تفتحيه.
+        </p>
+
+        <!-- Closed / Opening Envelope View -->
+        <div id="envelope-view" class="envelope-stage flex flex-col items-center gap-6">
+          <div id="envelope-shell" class="envelope-shell cursor-pointer" role="button" tabindex="0" aria-label="افتحي الجواب">
+            <!-- Soft table shadow -->
+            <div class="absolute -bottom-5 inset-x-5 h-7 rounded-full bg-plum/15 blur-xl"></div>
+
+            <!-- Envelope Back -->
+            <div class="absolute inset-0 rounded-2xl bg-[#F6E8DE] border border-[#E6CFC4] shadow-lg overflow-hidden"></div>
+
+            <!-- Inner Letter peeking upward when opened -->
+            <div class="letter-sheet-preview absolute inset-x-5 top-4 h-44 rounded-xl bg-[#FFFDF9] border border-blush/60 shadow-md p-4 opacity-90 flex flex-col items-center justify-start gap-2">
+              <div class="w-16 h-1 rounded-full bg-rose/50"></div>
+              <div class="w-3/4 h-1.5 rounded-full bg-plum/15"></div>
+              <div class="w-2/3 h-1.5 rounded-full bg-plum/12"></div>
+              <div class="w-4/5 h-1.5 rounded-full bg-plum/10"></div>
+              <p class="font-display text-sm text-crimson mt-2">يا أجمل حاجة حصلتلي…</p>
+            </div>
+
+            <!-- Envelope Pocket (Bottom & Side folds SVG) -->
+            <svg class="absolute inset-0 w-full h-full pointer-events-none z-10" viewBox="0 0 350 235" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="envFront" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#FFF7F1"/>
+                  <stop offset="100%" stop-color="#F6E5DC"/>
+                </linearGradient>
+              </defs>
+              <polygon points="0,0 175,126 0,235" fill="#F9ECE4" stroke="#E9D3C8" stroke-width="1"/>
+              <polygon points="350,0 175,126 350,235" fill="#F5E5DC" stroke="#E9D3C8" stroke-width="1"/>
+              <polygon points="0,235 175,112 350,235" fill="url(#envFront)" stroke="#E5CCC0" stroke-width="1"/>
+              <!-- Subtle floral corner accent -->
+              <circle cx="42" cy="198" r="10" fill="#F8C8DC" fill-opacity="0.5"/>
+              <circle cx="53" cy="206" r="7" fill="#EFA7BE" fill-opacity="0.45"/>
+              <circle cx="308" cy="198" r="10" fill="#F8C8DC" fill-opacity="0.5"/>
+            </svg>
+
+            <!-- Top Flap (3D animated) -->
+            <div class="envelope-flap absolute top-0 inset-x-0 h-[132px] z-20 pointer-events-none">
+              <svg class="w-full h-full drop-shadow-sm" viewBox="0 0 350 132" preserveAspectRatio="none">
+                <path d="M4,2 Q175,134 346,2 L350,0 L0,0 Z" fill="#FFF9F4" stroke="#E6CFC4" stroke-width="1.2"/>
+              </svg>
+            </div>
+
+            <!-- Rose Wax Seal -->
+            <div class="wax-seal absolute top-[92px] left-1/2 -translate-x-1/2 z-30 w-16 h-16 flex items-center justify-center">
+              <svg class="w-16 h-16 drop-shadow-md" viewBox="0 0 72 72">
+                <defs>
+                  <radialGradient id="waxGrad" cx="35%" cy="30%" r="70%">
+                    <stop offset="0%" stop-color="#E56E8B"/>
+                    <stop offset="55%" stop-color="#C84B69"/>
+                    <stop offset="100%" stop-color="#9A304B"/>
+                  </radialGradient>
+                </defs>
+                <path d="M36 5 C45 4,56 9,62 18 C67 27,68 41,62 52 C56 62,45 67,35 67 C23 67,13 61,8 50 C4 39,5 25,11 16 C17 8,27 5,36 5 Z" fill="url(#waxGrad)"/>
+                <circle cx="36" cy="36" r="22" fill="none" stroke="#F8C8DC" stroke-opacity="0.45" stroke-width="1.5"/>
+                <path d="M36 45.5l-1.2-1.1C30.2 40.3 27 37.4 27 33.8c0-2.9 2.2-5.1 5.1-5.1 1.6 0 3.1.8 3.9 2 .8-1.2 2.3-2 3.9-2 2.9 0 5.1 2.2 5.1 5.1 0 3.6-3.2 6.5-7.8 10.6L36 45.5z" fill="#FFF8F3" fill-opacity="0.92"/>
+              </svg>
+            </div>
+          </div>
+
+          <button id="open-letter-btn" type="button" class="btn-romantic">
+            <span>افتحي الجواب</span>
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="M22 6l-10 7L2 6"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Unfolded Luxury Letter View -->
+        <article id="unfolded-letter-view" class="hidden text-right mx-auto max-w-xl">
+          <div class="relative rounded-3xl bg-[#FFFDF9] border border-[#EBD6CB] shadow-2xl px-6 py-8 sm:px-10 sm:py-10 overflow-hidden">
+            <!-- Delicate paper top border -->
+            <div class="absolute top-0 inset-x-0 h-2 bg-gradient-to-l from-blush via-crimson/70 to-lavender"></div>
+            <div class="flex items-center justify-between border-b border-blush/50 pb-4 mb-6">
+              <div>
+                <p class="font-en-script italic text-dusty text-sm">To My Dearest Zeina</p>
+                <h3 class="font-display text-2xl sm:text-3xl text-crimson">إلى زينة ♡</h3>
+              </div>
+              <svg class="w-10 h-10 opacity-75" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <circle cx="24" cy="24" r="18" fill="#F8C8DC" fill-opacity="0.45"/>
+                <path d="M24 31l-1-0.9C19 26.5 16.5 24.2 16.5 21.4c0-2.3 1.8-4 4-4 1.3 0 2.5.6 3.5 1.7 1-1.1 2.2-1.7 3.5-1.7 2.2 0 4 1.7 4 4 0 2.8-2.5 5.1-6.5 8.7L24 31z" fill="#C84B69"/>
+              </svg>
+            </div>
+
+            <div id="letter-paragraphs" class="font-serif-ar text-lg sm:text-xl leading-loose text-plum/90 space-y-4"></div>
+
+            <div class="mt-8 pt-5 border-t border-blush/50 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+              <div>
+                <p class="text-sm text-dusty">من الشخص اللي بيحبك جدًا…</p>
+                <p id="letter-signature" class="font-display text-2xl text-crimson mt-1"></p>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <button id="save-letter-btn" type="button" class="btn-romantic text-sm px-5 py-2.5">
+                  <span>احتفظي بالجواب ♡</span>
+                </button>
+                <button id="close-letter-btn" type="button" class="btn-soft text-xs px-4 py-2">
+                  <span>طيّ الجواب</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 text-center">
+            <button type="button" data-goto="5" class="btn-soft">
+              <span>تعالي نشوف الدبدوب</span>
+              <span aria-hidden="true">←</span>
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- SCENE 5: THE TEDDY BEAR WORLD — "الدبدوب عنده كلام ليكي"-->
+    <!-- ===================================================== -->
+    <section id="scene-5" class="scene bg-scene-5 flex flex-col items-center justify-center px-4 text-center" aria-label="عالم الدبدوب">
+      <!-- Cozy pastel window & room arch -->
+      <div class="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden="true">
+        <div class="absolute top-16 left-1/2 -translate-x-1/2 w-[min(440px,90vw)] h-[360px] rounded-t-full bg-gradient-to-b from-white/70 via-blush/25 to-transparent border-t border-x border-white/80"></div>
+      </div>
+
+      <div class="relative z-10 max-w-2xl w-full my-auto py-4">
+        <p class="font-en-script italic text-dusty text-sm sm:text-base tracking-wider">Your Little Cozy Companion</p>
+        <h2 class="font-display text-3xl sm:text-4xl text-plum mt-1">الدبدوب عنده كلام ليكي</h2>
+        <p class="text-xs sm:text-sm text-plum/70 mt-1.5 mb-5">
+          تقدري تحضنيه، تدّيله وردة، تضغطي على قلبه، أو حتى تلمسي أنفه الصغير!
+        </p>
+
+        <!-- Speech Bubble -->
+        <div class="min-h-[68px] flex items-center justify-center mb-3">
+          <div id="teddy-speech" class="glass-card rounded-2xl px-5 py-3 text-base sm:text-lg font-serif-ar text-plum max-w-md transition-all duration-300">
+            أهلًا يا زينة… أنا قاعد هنا مستنيكي ♡
+          </div>
+        </div>
+
+        <!-- Interactive Bear Stage -->
+        <div class="relative flex flex-col items-center justify-center my-2">
+          <!-- Warm hug halo -->
+          <div id="teddy-halo" class="absolute w-56 h-56 sm:w-64 sm:h-64 rounded-full bg-rose/25 blur-2xl transition-all duration-500 scale-90 opacity-60"></div>
+
+          <div class="relative w-56 h-56 sm:w-64 sm:h-64 flex items-center justify-center">
+            <div id="world-teddy-mount" class="w-full h-full"></div>
+            <!-- Interactive Hotspots on Bear: Nose (Shy Easter Egg) & Heart -->
+            <button id="teddy-nose-hotspot" type="button" aria-label="المسي أنف الدبدوب" title="أنف الدبدوب" class="absolute top-[39%] left-1/2 -translate-x-1/2 w-10 h-8 rounded-full bg-transparent cursor-pointer focus-visible:outline-crimson"></button>
+            <button id="teddy-heart-hotspot" type="button" aria-label="اضغطي على قلب الدبدوب" title="قلب الدبدوب" class="absolute top-[59%] left-1/2 -translate-x-1/2 w-14 h-12 rounded-full bg-transparent cursor-pointer focus-visible:outline-crimson"></button>
+          </div>
+          <!-- Cozy pastel rug shadow -->
+          <div class="w-48 h-6 rounded-full bg-dusty/20 blur-md -mt-3"></div>
+        </div>
+
+        <!-- 4 Real Action Buttons -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 max-w-xl mx-auto mt-5">
+          <button id="act-hug-btn" type="button" class="btn-soft flex-col py-3 px-2 rounded-2xl text-xs sm:text-sm">
+            <svg class="w-5 h-5 text-crimson" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            <span>حضن صغير؟</span>
+          </button>
+
+          <button id="act-rose-btn" type="button" class="btn-soft flex-col py-3 px-2 rounded-2xl text-xs sm:text-sm">
+            <svg class="w-5 h-5 text-crimson" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="9" r="5" fill="#F8C8DC"/>
+              <path d="M12 14v7M12 17c-2.5 0-4-1.5-4-3M12 18c2.5 0 4-1.5 4-3" stroke-linecap="round"/>
+            </svg>
+            <span>ادّيله وردة</span>
+          </button>
+
+          <button id="act-heart-btn" type="button" class="btn-soft flex-col py-3 px-2 rounded-2xl text-xs sm:text-sm">
+            <svg class="w-5 h-5 text-crimson" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M3 12h4l2.5-6 4 12 2.5-6H21" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>اسمعي قلبه</span>
+          </button>
+
+          <button id="act-dance-btn" type="button" class="btn-soft flex-col py-3 px-2 rounded-2xl text-xs sm:text-sm">
+            <svg class="w-5 h-5 text-crimson" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M9 18V5l12-2v13" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+            </svg>
+            <span>خلّيه يرقص</span>
+          </button>
+        </div>
+
+        <div class="mt-6">
+          <button type="button" data-goto="6" class="btn-soft">
+            <span>نطلع نشوف النجوم</span>
+            <span aria-hidden="true">←</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- SCENE 6: OUR LITTLE UNIVERSE — "لو النجوم بتتكلم…"     -->
+    <!-- ===================================================== -->
+    <section id="scene-6" class="scene bg-scene-6 flex flex-col items-center px-4 text-center" aria-label="سماء النجوم">
+      <div class="relative z-10 max-w-4xl w-full my-auto py-3">
+        <p class="font-en-script italic text-blush/80 text-sm sm:text-base tracking-wider">Under Our Velvet Sky</p>
+        <h2 class="font-display text-3xl sm:text-4xl text-cream mt-1">لو النجوم بتتكلم…</h2>
+        <p class="text-xs sm:text-sm text-blush/85 mt-1.5 mb-4 max-w-lg mx-auto">
+          اضغطي على النجوم اللامعة عشان تقرئي رسايلها، ووصّلي النجوم المرقّمة من ١ لـ ٧ بالترتيب عشان تكتشفي سرّ السما.
+        </p>
+
+        <!-- Interactive Night Sky Canvas / SVG -->
+        <div class="relative mx-auto w-full max-w-2xl aspect-[16/11] sm:aspect-[16/10] rounded-[2rem] glass-dark overflow-hidden shadow-2xl border border-blush/20">
+          <!-- Pastel Moon -->
+          <svg class="absolute top-4 left-5 sm:top-6 sm:left-7 w-14 h-14 sm:w-20 sm:h-20 pointer-events-none drop-shadow-[0_0_22px_rgba(248,200,220,0.55)]" viewBox="0 0 80 80" aria-hidden="true">
+            <defs>
+              <radialGradient id="moonGrad" cx="35%" cy="35%" r="70%">
+                <stop offset="0%" stop-color="#FFFDF8"/>
+                <stop offset="70%" stop-color="#FCE4EC"/>
+                <stop offset="100%" stop-color="#DCCAF5"/>
+              </radialGradient>
+            </defs>
+            <path d="M48 12A28 28 0 1 0 68 54A22 22 0 1 1 48 12Z" fill="url(#moonGrad)"/>
+          </svg>
+
+          <!-- Background twinkling dust stars + Constellation SVG -->
+          <svg id="sky-svg" class="w-full h-full" viewBox="0 0 640 400" preserveAspectRatio="xMidYMid meet" role="img" aria-label="خريطة النجوم التفاعلية">
+            <g id="bg-stars-layer"></g>
+            <g id="constellation-lines-layer"></g>
+            <g id="message-stars-layer"></g>
+            <g id="constellation-stars-layer"></g>
+          </svg>
+
+          <!-- Star Message Toast inside Sky -->
+          <div id="star-message-box" class="hidden absolute bottom-3 inset-x-3 sm:inset-x-8 px-4 py-2.5 rounded-2xl bg-plum/85 backdrop-blur-md border border-blush/35 text-cream font-serif-ar text-sm sm:text-lg shadow-xl transition-all"></div>
+        </div>
+
+        <!-- Constellation Controls & Completion Banner -->
+        <div class="mt-4 flex flex-wrap items-center justify-center gap-3">
+          <span id="constellation-status" class="text-xs sm:text-sm text-blush/90 bg-white/10 px-4 py-1.5 rounded-full border border-blush/20">
+            الخطوة التالية: النجمة رقم 1
+          </span>
+          <button id="auto-constellation-btn" type="button" class="text-xs sm:text-sm px-4 py-1.5 rounded-full bg-blush/20 hover:bg-blush/30 text-cream border border-blush/35 transition-colors">
+            وصّلي كوكبة القلب تلقائيًا
+          </button>
+          <button type="button" data-goto="7" class="text-xs sm:text-sm px-4 py-1.5 rounded-full bg-cream text-plum font-bold hover:scale-105 transition-transform">
+            ألبوم الذكريات ←
+          </button>
+        </div>
+
+        <div id="constellation-complete-banner" class="hidden mt-4 glass-dark rounded-2xl px-6 py-3.5 max-w-lg mx-auto border border-blush/45">
+          <p class="font-display text-xl sm:text-2xl text-blush">
+            حتى النجوم اجتمعت عشان تقولك… بحبك ♡
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- SCENE 7: THE MEMORY ALBUM — "لحظات تستاهل نحتفظ بيها" -->
+    <!-- ===================================================== -->
+    <section id="scene-7" class="scene bg-scene-7 flex flex-col items-center px-4 text-center" aria-label="ألبوم الذكريات">
+      <div class="relative z-10 max-w-4xl w-full my-auto py-4">
+        <p class="font-en-script italic text-dusty text-sm sm:text-base tracking-wider">Moments Worth Keeping</p>
+        <h2 class="font-display text-3xl sm:text-4xl text-plum mt-1">لحظات تستاهل نحتفظ بيها</h2>
+        <p class="text-sm text-plum/75 mt-1.5 mb-5 max-w-lg mx-auto">
+          كل برواز هنا مستني صورة من ذكرياتنا الحلوة… اضغطي على أي كارت عشان تكبّريه أو تجرّبي تحطي فيه صورة من جهازك.
+        </p>
+
+        <!-- Polaroid Grid -->
+        <div id="polaroid-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto mb-6 px-2"></div>
+
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <label class="btn-soft cursor-pointer text-xs sm:text-sm">
+            <span>جرّبي إضافة صورة للألبوم</span>
+            <input id="custom-photo-input" type="file" accept="image/*" class="hidden" />
+          </label>
+          <button type="button" data-goto="8" class="btn-romantic text-sm px-6 py-2.5">
+            <span>برطمان الرسائل</span>
+            <span aria-hidden="true">←</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- SCENE 8: THE JAR OF LOVE NOTES — "افتحي واحدة لما تشتاقيلي" -->
+    <!-- ===================================================== -->
+    <section id="scene-8" class="scene bg-scene-8 flex flex-col items-center justify-center px-4 text-center" aria-label="برطمان الرسائل">
+      <div class="relative z-10 max-w-3xl w-full my-auto py-4">
+        <p class="font-en-script italic text-dusty text-sm sm:text-base tracking-wider">Jar of Little Love Notes</p>
+        <h2 class="font-display text-3xl sm:text-4xl text-plum mt-1">افتحي واحدة لما تشتاقيلي</h2>
+        <p class="text-sm text-plum/75 mt-1.5 mb-5">
+          جوه البرطمان ده <span id="notes-total-label" class="font-bold text-crimson">32</span> رسالة صغيرة معمولين عشانك… اضغطي على البرطمان واسحبي واحدة.
+        </p>
+
+        <div class="flex flex-col md:flex-row items-center justify-center gap-6 sm:gap-10">
+          <!-- Illustrated Layered Glass Jar -->
+          <div class="relative flex flex-col items-center">
+            <button id="glass-jar-btn" type="button" aria-label="افتحي رسالة من البرطمان" class="group relative focus:outline-none">
+              <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-40 h-6 rounded-full bg-plum/15 blur-lg"></div>
+              <svg id="glass-jar-svg" class="w-48 h-60 sm:w-56 sm:h-68 transition-transform duration-300 group-hover:scale-105" viewBox="0 0 220 270" fill="none">
+                <defs>
+                  <linearGradient id="jarGlass" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.72"/>
+                    <stop offset="28%" stop-color="#FFF8F3" stop-opacity="0.32"/>
+                    <stop offset="76%" stop-color="#F8C8DC" stop-opacity="0.28"/>
+                    <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.68"/>
+                  </linearGradient>
+                  <linearGradient id="corkGrad" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#D9A87E"/>
+                    <stop offset="50%" stop-color="#E8BE96"/>
+                    <stop offset="100%" stop-color="#C58E64"/>
+                  </linearGradient>
+                </defs>
+                <!-- Cork Stopper -->
+                <g id="jar-cork" class="transition-transform duration-500">
+                  <path d="M74 22 C74 16 146 16 146 22 L141 50 L79 50 Z" fill="url(#corkGrad)" stroke="#B07A52" stroke-width="1.5"/>
+                  <ellipse cx="110" cy="22" rx="36" ry="6" fill="#F0CAA5"/>
+                </g>
+                <!-- Jar Rim -->
+                <rect x="66" y="48" width="88" height="16" rx="8" fill="#FFF8F3" fill-opacity="0.82" stroke="#D9B7C5" stroke-width="2"/>
+                <!-- Jar Body Back -->
+                <path d="M68 64 C44 76 34 98 34 128 L34 218 C34 242 52 254 80 254 L140 254 C168 254 186 242 186 218 L186 128 C186 98 176 76 152 64 Z" fill="#FFF8F3" fill-opacity="0.48" stroke="#D5AEC0" stroke-width="2.2"/>
+
+                <!-- Colorful Folded Paper Scrolls Inside -->
+                <g opacity="0.95">
+                  <rect x="52" y="182" width="44" height="18" rx="6" transform="rotate(-14 74 191)" fill="#F8C8DC" stroke="#E5A2BE"/>
+                  <rect x="92" y="196" width="46" height="18" rx="6" transform="rotate(9 115 205)" fill="#DCCAF5" stroke="#BEA4E3"/>
+                  <rect x="128" y="180" width="42" height="18" rx="6" transform="rotate(-22 149 189)" fill="#FDE6C4" stroke="#E9C796"/>
+                  <rect x="58" y="212" width="48" height="18" rx="6" transform="rotate(6 82 221)" fill="#EFA7BE" stroke="#D686A0"/>
+                  <rect x="112" y="216" width="46" height="18" rx="6" transform="rotate(-8 135 225)" fill="#FFF3E6" stroke="#E6CCB4"/>
+                  <rect x="74" y="158" width="45" height="17" rx="6" transform="rotate(17 96 166)" fill="#F6D5E5" stroke="#DFB1C8"/>
+                  <rect x="116" y="154" width="44" height="17" rx="6" transform="rotate(-11 138 162)" fill="#E6D7FA" stroke="#C7B2E8"/>
+                  <rect x="54" y="146" width="40" height="16" rx="6" transform="rotate(-26 74 154)" fill="#FBE2D0" stroke="#E2BC9F"/>
+                  <rect x="90" y="132" width="44" height="16" rx="6" transform="rotate(4 112 140)" fill="#F8C8DC" stroke="#DF9FB9"/>
+                </g>
+
+                <!-- Glass Front Specular Layer -->
+                <path d="M68 64 C44 76 34 98 34 128 L34 218 C34 242 52 254 80 254 L140 254 C168 254 186 242 186 218 L186 128 C186 98 176 76 152 64 Z" fill="url(#jarGlass)"/>
+                <!-- Specular shine curves -->
+                <path d="M52 104 C48 132 48 178 52 216" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-opacity="0.72"/>
+                <path d="M168 112 C172 138 172 168 168 196" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-opacity="0.48"/>
+
+                <!-- Satin Ribbon & Tag -->
+                <path d="M68 68 Q110 78 152 68" stroke="#C84B69" stroke-width="6" stroke-linecap="round"/>
+                <path d="M110 73 C94 64 84 74 96 84 C104 88 109 80 110 73 Z" fill="#C84B69"/>
+                <path d="M110 73 C126 64 136 74 124 84 C116 88 111 80 110 73 Z" fill="#D95F7D"/>
+                <circle cx="110" cy="74" r="5" fill="#A93452"/>
+              </svg>
+              <span class="mt-1 inline-block text-xs font-bold text-crimson bg-white/80 px-3 py-1 rounded-full shadow-sm">
+                اضغطي واسحبي رسالة ♡
+              </span>
+            </button>
+            <p id="notes-opened-count" class="text-xs text-plum/65 mt-2">فتحتي 0 من 32 رسالة</p>
+          </div>
+
+          <!-- Active Unfolded Note Card -->
+          <div class="w-full max-w-sm">
+            <div id="active-note-card" class="glass-card rounded-3xl p-6 sm:p-7 min-h-[210px] flex flex-col items-center justify-center text-center relative overflow-hidden transition-all duration-500">
+              <span id="note-category-badge" class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-blush/55 text-crimson mb-3">
+                رسالة مستنياكي
+              </span>
+              <p id="note-text-display" class="font-serif-ar text-xl sm:text-2xl text-plum leading-relaxed">
+                اضغطي على البرطمان عشان تطلعلك أول رسالة مخصوص ليكي يا زينة ♡
+              </p>
+              <button id="another-note-btn" type="button" class="mt-5 btn-soft text-xs px-4 py-2">
+                اسحبي رسالة تانية
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Easter Egg #3: Playful "ممنوع تدوسي هنا!" Button + Next to Finale -->
+        <div class="mt-7 flex flex-wrap items-center justify-center gap-4 min-h-[56px]">
+          <div id="curious-btn-wrap" class="relative inline-block">
+            <button id="forbidden-love-btn" type="button" class="text-xs sm:text-sm px-4 py-2 rounded-full bg-plum/10 hover:bg-plum/15 text-plum font-semibold border border-plum/20 transition-all duration-300">
+              ممنوع تدوسي هنا!
+            </button>
+          </div>
+
+          <button type="button" data-goto="9" class="btn-romantic">
+            <span>المفاجأة الأخيرة</span>
+            <span aria-hidden="true">←</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- SCENE 9: THE GRAND FINALE — "في حاجة أخيرة لازم تعرفيها…" -->
+    <!-- ===================================================== -->
+    <section id="scene-9" class="scene bg-scene-9 flex flex-col items-center justify-center px-4 text-center" aria-label="المفاجأة النهائية">
+      <!-- Midnight garden glowing flora & fireflies -->
+      <div class="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden="true">
+        <div id="finale-bloom-ring" class="absolute inset-0 opacity-0 transition-opacity duration-1000">
+          <!-- Blooming corner roses -->
+          <div id="finale-corner-roses" class="absolute inset-0"></div>
+        </div>
+        <svg class="absolute bottom-0 inset-x-0 w-full h-44 opacity-50" preserveAspectRatio="none" viewBox="0 0 1440 200" fill="none">
+          <path d="M0 140C300 60 650 180 1020 100C1240 55 1360 95 1440 120V200H0V140Z" fill="#4A1F3E"/>
+          <path d="M0 165C360 110 720 195 1120 135C1280 110 1380 140 1440 155V200H0V165Z" fill="#2A1128"/>
+        </svg>
+      </div>
+
+      <div class="relative z-10 max-w-2xl w-full my-auto py-4 flex flex-col items-center">
+        <!-- Stage A: Dramatic Heartbeat Intro -->
+        <div id="finale-intro" class="flex flex-col items-center justify-center gap-5 min-h-[280px]">
+          <div id="finale-glow-heart" class="w-20 h-20 rounded-full bg-crimson/25 flex items-center justify-center shadow-[0_0_50px_rgba(200,75,105,0.65)] transition-all duration-1000">
+            <svg class="w-12 h-12 text-blush anim-heartbeat" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </div>
+          <p id="finale-step-text" class="font-display text-3xl sm:text-4xl text-cream transition-opacity duration-500">
+            استني…
+          </p>
+        </div>
+
+        <!-- Stage B: The Grand Reveal -->
+        <div id="finale-reveal" class="hidden flex-col items-center gap-4 w-full">
+          <!-- Teddy Bear carrying enormous bouquet -->
+          <div class="relative flex items-center justify-center">
+            <div class="absolute w-64 h-64 rounded-full bg-crimson/30 blur-3xl"></div>
+            <div id="finale-teddy-mount" class="relative w-52 h-52 sm:w-60 sm:h-60"></div>
+          </div>
+
+          <h1 class="font-display text-4xl sm:text-6xl text-blush drop-shadow-[0_4px_24px_rgba(200,75,105,0.6)] leading-tight">
+            بحبك يا زينة ♡
+          </h1>
+          <p class="font-en-script italic text-blush/75 text-base sm:text-lg tracking-widest -mt-2">
+            I Love You, Zeina
+          </p>
+
+          <p class="font-serif-ar text-lg sm:text-2xl text-cream/92 leading-relaxed max-w-xl">
+            ومهما عملت مواقع، وكتبت كلام، وحاولت أوصف…<br/>
+            مش هعرف أوصل قد إيه إنتِ غالية عندي.
+          </p>
+
+          <p class="text-sm sm:text-base text-blush/90 font-semibold">
+            إنتِ أجمل جزء في الحكاية.
+          </p>
+
+          <!-- Final Interactive Smile Surprise -->
+          <div id="finale-smile-area" class="mt-2 flex flex-col items-center gap-4">
+            <button id="finale-smile-btn" type="button" class="btn-romantic text-base sm:text-lg px-8 py-3.5 shadow-[0_0_32px_rgba(239,167,190,0.45)]">
+              <span>دوسي هنا لو بتضحكي دلوقتي ♡</span>
+            </button>
+
+            <div id="finale-smile-message" class="hidden glass-dark rounded-3xl px-6 py-4 border border-blush/50 max-w-md anim-reveal">
+              <p class="font-display text-2xl sm:text-3xl text-blush leading-snug">
+                ضحكتك دي هي كل اللي كنت مستنيه. ♡
+              </p>
+            </div>
+
+            <button id="replay-story-btn" type="button" class="text-xs sm:text-sm text-blush/80 hover:text-cream underline underline-offset-4 mt-1 transition-colors">
+              عايزة تعيشي الحكاية من الأول؟
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Story Progress & Navigation Bar -->
+  <nav id="bottom-nav" class="fixed bottom-0 inset-x-0 z-40 px-4 flex items-center justify-center pointer-events-none" style="padding-bottom: calc(12px + var(--safe-bottom));" aria-label="التنقل بين مشاهد القصة">
+    <div class="pointer-events-auto glass-card rounded-full px-3 py-2 flex items-center gap-2 sm:gap-3 shadow-xl">
+      <button id="nav-prev-btn" type="button" aria-label="المشهد السابق" class="w-8 h-8 rounded-full flex items-center justify-center text-plum hover:bg-blush/40 disabled:opacity-30 transition-colors">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+
+      <div id="progress-dots" class="flex items-center gap-1.5 sm:gap-2" role="tablist" aria-label="مشاهد الحكاية"></div>
+
+      <button id="nav-next-btn" type="button" aria-label="المشهد التالي" class="w-8 h-8 rounded-full flex items-center justify-center text-plum hover:bg-blush/40 disabled:opacity-30 transition-colors">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Reusable Romantic Modal (Rose Message, Easter Eggs, Polaroid Lightbox) -->
+  <div id="story-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-plum/55 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div id="story-modal-card" class="relative w-full max-w-md rounded-[2rem] bg-[#FFFDF9] border border-blush/70 shadow-2xl p-6 sm:p-8 text-center anim-reveal">
+      <button id="modal-close-btn" type="button" aria-label="إغلاق" class="absolute top-4 left-4 w-9 h-9 rounded-full bg-blush/35 hover:bg-blush/60 text-plum flex items-center justify-center transition-colors">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div id="modal-visual" class="flex justify-center mb-3"></div>
+      <span id="modal-badge" class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-blush/45 text-crimson mb-2"></span>
+      <h3 id="modal-title" class="font-display text-2xl sm:text-3xl text-plum mb-3"></h3>
+      <p id="modal-body" class="font-serif-ar text-lg sm:text-xl text-plum/90 leading-relaxed"></p>
+      <div id="modal-extra" class="mt-5"></div>
+    </div>
+  </div>
+
+  <script>
+    /* =========================================================================
+       CENTRAL PERSONALIZATION CONFIG (src/config/loveStory.ts equivalent)
+       Customize her name, your name, messages, roses, memories, and notes here.
+       ========================================================================= */
+    const loveStory = {
+      herName: "زينة",
+      herNameEn: "Zeina",
+      myName: "الشخص اللي بيحبك",
+      siteTitle: "عالم معمول عشانكِ",
+      welcomeMessage: "أهلًا بأجمل صدفة حصلت في حياتي",
+      loveLetter: [
+        "يا أجمل حاجة حصلتلي…",
+        "أنا مش عارف أبدأ منين، ولا أقولك إيه يوصف مكانتك عندي.",
+        "بس أنا عارف حاجة واحدة كويس… إن وجودك في حياتي خلّى حاجات كتير أبسط وأحلى.",
+        "بحب ضحكتك، وكلامك، وتفاصيلك، وحتى اللحظات العادية اللي بتعدّي وإحنا بنتكلم.",
+        "يمكن مش بعرف أعبّر كل مرة عن اللي جوايا… بس حقيقي، إنتِ غالية عندي بطريقة أكبر من أي كلام.",
+        "ولو الدنيا كلها كانت قدامي، هفضل مبسوط إني عرفتك إنتِ بالذات.",
+        "بحبك… بكل تفاصيلك. ♡"
+      ],
+      finalMessage: "بحبك يا زينة ♡",
+      roses: [
+        { id: 1, label: "الوردة الأولى", color: "#E86A89", inner: "#F9BFD0", message: "ضحكتك لوحدها كفاية تخلّي يومي أحلى." },
+        { id: 2, label: "الوردة الثانية", color: "#C84B69", inner: "#F4A3B8", message: "وجودك في حياتي مش حاجة عادية… ده نعمة بحمد ربنا عليها." },
+        { id: 3, label: "الوردة الثالثة", color: "#D97B93", inner: "#FCE0E8", message: "بحب التفاصيل الصغيرة اللي بتخلّيكِ إنتِ." },
+        { id: 4, label: "الوردة الرابعة", color: "#B76E79", inner: "#F5C6CE", message: "كل مرة بكلمك فيها، بلاقي سبب جديد يخلّيني أحبك أكتر." },
+        { id: 5, label: "الوردة الخامسة", color: "#E5829E", inner: "#FDE8EF", message: "لو كان بإيدي أختار أجمل لحظة في يومي، هختار اللحظة اللي بتكوني فيها معايا." },
+        { id: 6, label: "الوردة السادسة", color: "#C95D7A", inner: "#F8C8DC", message: "إنتِ مش مجرد شخص بحبه… إنتِ الشخص اللي بيفرق معايا في كل حاجة." },
+        { id: 7, label: "الوردة السابعة", color: "#B875A0", inner: "#EAD7F7", message: "طريقة كلامك وهدوئك بتخلّي أي مكان فيه راحة غريبة." },
+        { id: 8, label: "الوردة الثامنة", color: "#D45F76", inner: "#FAD4DC", message: "مهما عدّى وقت، هتفضلي دايمًا أحلى اختيار اختاره قلبي." }
+      ],
+      secretRose: {
+        label: "الوردة السرية",
+        message: "يا زينة… لو جمعت كل الورد اللي في الدنيا، مش هيكفّي يعبّر عن قد إيه وجودك مفرّح قلبي. إنتِ الأمان، والفرحة، وأجمل حكاية."
+      },
+      messageStars: [
+        { x: 108, y: 120, text: "من وسط كل الناس… قلبي اختارك إنتِ." },
+        { x: 525, y: 98, text: "نفسي أيامك كلها تكون حلوة زي قلبك." },
+        { x: 96, y: 278, text: "أحلى حاجة في يومي؟ وجودك فيه." },
+        { x: 545, y: 266, text: "حتى في أكتر الأيام زحمة، فكرة إنك موجودة بتطمني." },
+        { x: 175, y: 66, text: "يا زينة… إنتِ النجمة اللي نورت سمايا." },
+        { x: 472, y: 332, text: "بدعي دايمًا إن الضحكة متفارقش وشك أبدًا." }
+      ],
+      heartConstellation: [
+        { step: 1, x: 320, y: 158 },
+        { step: 2, x: 255, y: 112 },
+        { step: 3, x: 196, y: 172 },
+        { step: 4, x: 320, y: 312 },
+        { step: 5, x: 444, y: 172 },
+        { step: 6, x: 385, y: 112 },
+        { step: 7, x: 320, y: 158 }
+      ],
+      memories: [
+        { id: "m1", caption: "هنا هنحط صورة من أحلى ذكرياتنا ♡", note: "أول ضحكة حلوة نحتفظ بيها سوا.", theme: "sunset", tilt: -2.5, photoUrl: "" },
+        { id: "m2", caption: "لحظة دافية تستاهل تفضل معانا دايمًا", note: "فنجان قهوة وكلام مبيخلصش.", theme: "coffee", tilt: 2, photoUrl: "" },
+        { id: "m3", caption: "هنا هنحط صورة ليوم فرحنا فيه جدًا ♡", note: "تفاصيل صغيرة بتفضل محفورة في القلب.", theme: "garden", tilt: -1.5, photoUrl: "" },
+        { id: "m4", caption: "ذكرياتنا الجاية أحلى بكتير", note: "السما والنجوم شاهدين على حكايتنا.", theme: "night", tilt: 2.2, photoUrl: "" },
+        { id: "m5", caption: "صورة فيها ضحكتك اللي بحبها", note: "أجمل كادر ممكن الكاميرا تاخده.", theme: "roses", tilt: -2, photoUrl: "" },
+        { id: "m6", caption: "لسه الحكاية في أولها يا زينة ♡", note: "ومساحة كبيرة لكل الأيام الحلوة اللي جاية.", theme: "letter", tilt: 1.8, photoUrl: "" }
+      ],
+      loveNotes: [
+        { cat: "تذكير لطيف", text: "تذكير بسيط: إنتِ جميلة جدًا النهارده." },
+        { cat: "ضحكتك", text: "متنسيش تضحكي… ضحكتك غالية عندي." },
+        { cat: "طمأنة", text: "لو يومك كان صعب، أتمنى الرسالة دي تخليه ألطف شوية." },
+        { cat: "رسالة لطيفة", text: "بعتلك وردة خيالية… بس بحب حقيقي." },
+        { cat: "امتنان", text: "أنا محظوظ إني عرفتك يا زينة." },
+        { cat: "سبب بحبك عشانه", text: "بحب طيبة قلبك اللي بتبان في أصغر تصرف." },
+        { cat: "مجاملة", text: "إنتِ النوع النادر من الناس اللي وجودهم بيحلّي أي مكان." },
+        { cat: "أمنية ليكي", text: "يا رب كل حاجة حلوة بتتمنيها تيجي لحد عندك." },
+        { cat: "طمأنة", text: "مهما حصل، إنتِ مش لوحدك… أنا دايمًا في ضهرك." },
+        { cat: "لحظة حلوة", text: "لسه فاكر قد إيه ببقى مبسوط أول ما أشوف رسالة منك." },
+        { cat: "سبب بحبك عشانه", text: "بحب عفويتك وكلامك اللي بيطلع من القلب على طول." },
+        { cat: "مجاملة", text: "عينيكِ فيها هدوء بيخلّي الواحد ينسى أي تعب." },
+        { cat: "رسالة لطيفة", text: "خدي نفس عميق… وافتكري إن فيه حد بيفكر فيكي دلوقتي." },
+        { cat: "أمنية ليكي", text: "أتمنى النهارده يحصلك حاجة صغيرة تخلّيكِ تبتسمي من قلبك." },
+        { cat: "ضحكتك", text: "لو فيه جائزة لأحلى ضحكة في العالم، كنتِ هتاخديها من غير منافسة." },
+        { cat: "طمأنة", text: "إنتِ بتعملي اللي عليكي وزيادة… فخور بيكي دايمًا." },
+        { cat: "سبب بحبك عشانه", text: "بحب إنك بتفهميني حتى من غير ما أتكلم كتير." },
+        { cat: "رسالة لطيفة", text: "الدبدوب بيقولك: اشربي مية وخلي بالك من نفسك!" },
+        { cat: "مجاملة", text: "اسمك «زينة» فعلاً لايق عليكي… إنتِ زينة الأيام." },
+        { cat: "لحظة حلوة", text: "أحلى وقت في يومي هو الوقت اللي بتكلم فيه معاكي." },
+        { cat: "طمأنة", text: "الأيام الصعبة بتعدّي، وإحنا سوا بنعدّيها أسهل." },
+        { cat: "سبب بحبك عشانه", text: "بحب ذوقك وتفاصيلك وطريقتك في الاهتمام." },
+        { cat: "أمنية ليكي", text: "نفسي أشوفك دايمًا مرتاحة ومطمنة وسعيدة." },
+        { cat: "رسالة لطيفة", text: "لو كنتِ جنبي دلوقتي، كنت جبتلك أحلى وردة في المحل." },
+        { cat: "مجاملة", text: "وجودك بيخلّي التفاصيل العادية تحسّسني إنها عيد." },
+        { cat: "لحظة حلوة", text: "كل مرة بتضحكي فيها، بحس إن الدنيا لسه بخير." },
+        { cat: "سبب بحبك عشانه", text: "بحب إنك حقيقية ومش بتحاولي تكوني حد غير نفسك." },
+        { cat: "طمأنة", text: "مفيش حاجة تستاهل تزعّلك… قلبك أغلى من أي قلق." },
+        { cat: "رسالة لطيفة", text: "دي رسالة سريعة بس عشان أقولك: وحشتيني." },
+        { cat: "أمنية ليكي", text: "يا رب أيامنا الجاية تكون مليانة ضحك وذكريات حلوة." },
+        { cat: "مجاملة", text: "إنتِ أحلى صدفة وأغلى هدية." },
+        { cat: "من القلب", text: "وباختصار شديد… بحبك جدًا يا زينة ♡" }
+      ],
+      sceneTitles: [
+        "البداية",
+        "أهلًا يا زينة",
+        "حديقة الورد",
+        "جواب من قلبي",
+        "عالم الدبدوب",
+        "سماء النجوم",
+        "ألبوم الذكريات",
+        "برطمان الرسائل",
+        "المفاجأة الأخيرة"
+      ]
+    };
+
+    /* =========================================================================
+       STATE & SAFE LOCALSTORAGE
+       ========================================================================= */
+    const STORAGE_KEY = "only_for_zeina_v1";
+    const state = {
+      currentScene: 1,
+      maxReached: 1,
+      discoveredRoses: [],
+      secretRoseOpened: false,
+      letterOpened: false,
+      constellationStep: 1,
+      constellationComplete: false,
+      openedNoteIndices: [],
+      curiousAttempts: 0,
+      soundEnabled: false,
+      reducedMotion: window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    };
+
+    function loadProgress() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed.discoveredRoses)) state.discoveredRoses = parsed.discoveredRoses;
+        if (typeof parsed.secretRoseOpened === "boolean") state.secretRoseOpened = parsed.secretRoseOpened;
+        if (typeof parsed.maxReached === "number") state.maxReached = Math.max(1, Math.min(9, parsed.maxReached));
+        if (Array.isArray(parsed.openedNoteIndices)) state.openedNoteIndices = parsed.openedNoteIndices;
+      } catch (e) {}
+    }
+
+    function saveProgress() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          discoveredRoses: state.discoveredRoses,
+          secretRoseOpened: state.secretRoseOpened,
+          maxReached: state.maxReached,
+          openedNoteIndices: state.openedNoteIndices
+        }));
+      } catch (e) {}
+    }
+
+    /* =========================================================================
+       OPTIONAL WEB AUDIO MUSIC BOX & CHIMES (NEVER AUTOPLAYS)
+       ========================================================================= */
+    const SoundEngine = (() => {
+      let ctx = null;
+      let loopTimer = null;
+      let noteStep = 0;
+      const melody = [523.25, 659.25, 783.99, 659.25, 587.33, 698.46, 880.0, 698.46, 523.25, 659.25, 783.99, 1046.5, 880.0, 783.99, 659.25, 587.33];
+
+      function ensureCtx() {
+        if (!ctx) {
+          const AudioCtx = window.AudioContext || window.webkitAudioContext;
+          if (!AudioCtx) return null;
+          ctx = new AudioCtx();
+        }
+        if (ctx.state === "suspended") ctx.resume();
+        return ctx;
+      }
+
+      function playTone(freq, duration = 0.55, vol = 0.055, type = "sine") {
+        if (!state.soundEnabled) return;
+        const c = ensureCtx();
+        if (!c) return;
+        const now = c.currentTime;
+        const osc = c.createOscillator();
+        const gain = c.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, now);
+        gain.gain.setValueAtTime(0.0001, now);
+        gain.gain.exponentialRampToValueAtTime(vol, now + 0.03);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+        osc.connect(gain);
+        gain.connect(c.destination);
+        osc.start(now);
+        osc.stop(now + duration + 0.05);
+      }
+
+      function startLoop() {
+        stopLoop();
+        loopTimer = setInterval(() => {
+          if (!state.soundEnabled || document.hidden) return;
+          const f = melody[noteStep % melody.length];
+          playTone(f, 0.9, 0.032, "triangle");
+          noteStep++;
+        }, 720);
+      }
+
+      function stopLoop() {
+        if (loopTimer) {
+          clearInterval(loopTimer);
+          loopTimer = null;
+        }
+      }
+
+      return {
+        toggle() {
+          state.soundEnabled = !state.soundEnabled;
+          const btn = document.getElementById("sound-toggle-btn");
+          const onIco = document.getElementById("sound-icon-on");
+          const offIco = document.getElementById("sound-icon-off");
+          btn.setAttribute("aria-pressed", String(state.soundEnabled));
+          onIco.classList.toggle("hidden", !state.soundEnabled);
+          offIco.classList.toggle("hidden", state.soundEnabled);
+          if (state.soundEnabled) {
+            ensureCtx();
+            playTone(659.25, 0.5, 0.06, "sine");
+            setTimeout(() => playTone(880, 0.7, 0.05, "sine"), 120);
+            startLoop();
+          } else {
+            stopLoop();
+          }
+        },
+        chime() {
+          playTone(783.99, 0.45, 0.055, "sine");
+          setTimeout(() => playTone(1046.5, 0.6, 0.045, "triangle"), 90);
+        },
+        paper() {
+          playTone(587.33, 0.35, 0.045, "sine");
+          setTimeout(() => playTone(783.99, 0.55, 0.045, "sine"), 110);
+          setTimeout(() => playTone(987.77, 0.65, 0.04, "triangle"), 220);
+        },
+        sparkle() {
+          playTone(1046.5, 0.4, 0.045, "sine");
+          setTimeout(() => playTone(1318.5, 0.55, 0.04, "sine"), 90);
+        },
+        celebrate() {
+          [523.25, 659.25, 783.99, 1046.5].forEach((n, i) => {
+            setTimeout(() => playTone(n, 0.85, 0.05, "triangle"), i * 110);
+          });
+        }
+      };
+    })();
+
+    /* =========================================================================
+       ORIGINAL HANDCRAFTED SVG COMPONENTS
+       1. TeddyBear (supports states: idle, smile, shy, offerFlowers, hug, dance, celebrate, bigBouquet)
+       2. RoseFlower (rich layered petals, stem, leaves, optional golden glow)
+       3. PolaroidVignette (6 bespoke romantic mini-illustrations)
+       ========================================================================= */
+    function createTeddySVG({ mood = "idle", showBouquet = false, bigBouquet = false, mini = false } = {}) {
+      const uid = "tb_" + Math.random().toString(36).slice(2, 7);
+      const isShy = mood === "shy";
+      const isHug = mood === "hug";
+      const isDance = mood === "dance";
+      const isCelebrate = mood === "celebrate";
+      const isOffer = mood === "offerFlowers" || showBouquet || bigBouquet;
+
+      const animClass = isHug ? "anim-hug" : isDance ? "anim-dance" : isCelebrate ? "anim-celebrate" : "anim-breathe";
+      const blushOpacity = isShy ? "0.92" : "0.52";
+      const leftArmTransform = isHug
+        ? "rotate(-42 62 128)"
+        : isCelebrate
+          ? "rotate(-58 62 128)"
+          : isOffer
+            ? "rotate(-18 62 128)"
+            : "rotate(12 62 128)";
+      const rightArmTransform = isHug
+        ? "rotate(42 158 128)"
+        : isCelebrate
+          ? "rotate(58 158 128)"
+          : isOffer
+            ? "rotate(18 158 128)"
+            : "rotate(-12 158 128)";
+
+      const bouquetMarkup = (showBouquet || bigBouquet) ? `
+        <g transform="${bigBouquet ? 'translate(110, 146) scale(1.25)' : 'translate(110, 152) scale(0.88)'}">
+          <!-- Bouquet kraft wrap -->
+          <polygon points="-24,-6 24,-6 6,36 -6,36" fill="#F6E3D5" stroke="#DFC0AC" stroke-width="1.5"/>
+          <polygon points="-16,-6 16,-6 0,34" fill="#FFF8F3" opacity="0.7"/>
+          <!-- Ribbon -->
+          <path d="M-10,16 Q0,21 10,16" stroke="#C84B69" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+          <circle cx="0" cy="18" r="3" fill="#C84B69"/>
+          <!-- Greenery leaves -->
+          <ellipse cx="-20" cy="-12" rx="9" ry="4.5" transform="rotate(-32 -20 -12)" fill="#7EA685"/>
+          <ellipse cx="20" cy="-12" rx="9" ry="4.5" transform="rotate(32 20 -12)" fill="#7EA685"/>
+          <ellipse cx="0" cy="-22" rx="8" ry="4.5" fill="#8BB492"/>
+          <!-- Mini roses cluster -->
+          <g transform="translate(-14, -12)">
+            <circle r="10" fill="#E86A89"/><circle r="6.5" fill="#F8B6C8"/><path d="M-3,-1 C-1,-4 3,-3 2,1 C1,3 -3,2 -3,-1Z" fill="#C84B69"/>
+          </g>
+          <g transform="translate(14, -12)">
+            <circle r="10" fill="#D95B7A"/><circle r="6.5" fill="#F8C8DC"/><path d="M-3,-1 C-1,-4 3,-3 2,1 C1,3 -3,2 -3,-1Z" fill="#B53E5D"/>
+          </g>
+          <g transform="translate(0, -18)">
+            <circle r="11.5" fill="#C84B69"/><circle r="7.5" fill="#F5A6BE"/><path d="M-3.5,-1 C-1,-4.5 4,-3.5 2.5,1.5 C1,4 -3.5,2.5 -3.5,-1Z" fill="#A63250"/>
+          </g>
+          ${bigBouquet ? `
+            <g transform="translate(-24, -22) scale(0.85)"><circle r="9.5" fill="#EFA7BE"/><circle r="5.5" fill="#FFF0F5"/></g>
+            <g transform="translate(24, -22) scale(0.85)"><circle r="9.5" fill="#EFA7BE"/><circle r="5.5" fill="#FFF0F5"/></g>
+            <g transform="translate(-9, -28) scale(0.82)"><circle r="9" fill="#D66B8A"/><circle r="5" fill="#FAD2E0"/></g>
+            <g transform="translate(9, -28) scale(0.82)"><circle r="9" fill="#D66B8A"/><circle r="5" fill="#FAD2E0"/></g>
+          ` : ''}
+        </g>
+      ` : '';
+
+      return `
+        <svg class="w-full h-full overflow-visible ${animClass}" viewBox="0 0 220 225" fill="none" role="img" aria-label="دبدوب لطيف">
+          <defs>
+            <radialGradient id="${uid}_fur" cx="42%" cy="32%" r="68%">
+              <stop offset="0%" stop-color="#E7C2A2"/>
+              <stop offset="60%" stop-color="#D2A27D"/>
+              <stop offset="100%" stop-color="#B5805B"/>
+            </radialGradient>
+            <radialGradient id="${uid}_belly" cx="50%" cy="38%" r="65%">
+              <stop offset="0%" stop-color="#FFF5EA"/>
+              <stop offset="100%" stop-color="#F0D4BC"/>
+            </radialGradient>
+            <radialGradient id="${uid}_earIn" cx="50%" cy="50%" r="55%">
+              <stop offset="0%" stop-color="#F8C8DC"/>
+              <stop offset="100%" stop-color="#E5A2BC"/>
+            </radialGradient>
+          </defs>
+
+          <!-- Soft floor shadow -->
+          ${mini ? '' : `<ellipse cx="110" cy="208" rx="58" ry="11" fill="#392336" fill-opacity="0.12"/>`}
+
+          <!-- Ears -->
+          <g>
+            <circle cx="62" cy="54" r="24" fill="url(#${uid}_fur)"/>
+            <circle cx="62" cy="55" r="13.5" fill="url(#${uid}_earIn)"/>
+            <circle cx="158" cy="54" r="24" fill="url(#${uid}_fur)"/>
+            <circle cx="158" cy="55" r="13.5" fill="url(#${uid}_earIn)"/>
+          </g>
+
+          <!-- Feet -->
+          <g>
+            <ellipse cx="76" cy="192" rx="22" ry="16" fill="url(#${uid}_fur)"/>
+            <ellipse cx="76" cy="193" rx="12" ry="9" fill="#F8D8E4"/>
+            <ellipse cx="144" cy="192" rx="22" ry="16" fill="url(#${uid}_fur)"/>
+            <ellipse cx="144" cy="193" rx="12" ry="9" fill="#F8D8E4"/>
+          </g>
+
+          <!-- Chubby Body -->
+          <ellipse cx="110" cy="152" rx="52" ry="50" fill="url(#${uid}_fur)"/>
+          <ellipse cx="110" cy="156" rx="34" ry="34" fill="url(#${uid}_belly)"/>
+
+          <!-- Soft Stitched Heart on Chest -->
+          <path class="teddy-chest-heart" d="M110 164l-1.5-1.4C103 157.8 99.5 154.5 99.5 150.5c0-3.3 2.6-5.8 5.8-5.8 1.9 0 3.7.9 4.7 2.4 1-1.5 2.8-2.4 4.7-2.4 3.2 0 5.8 2.5 5.8 5.8 0 4-3.5 7.3-9 12.1L110 164z" fill="#C84B69" fill-opacity="0.88"/>
+
+          <!-- Arms -->
+          <g transform="${leftArmTransform}" style="transition: transform 0.55s cubic-bezier(0.34,1.56,0.64,1);">
+            <ellipse cx="58" cy="144" rx="16" ry="28" transform="rotate(24 58 144)" fill="url(#${uid}_fur)"/>
+          </g>
+          <g transform="${rightArmTransform}" style="transition: transform 0.55s cubic-bezier(0.34,1.56,0.64,1);">
+            <ellipse cx="162" cy="144" rx="16" ry="28" transform="rotate(-24 162 144)" fill="url(#${uid}_fur)"/>
+          </g>
+
+          <!-- Silk Neck Bow -->
+          <g transform="translate(110, 122)">
+            <path d="M0 0 C-14 -8 -22 2 -14 10 C-8 14 -2 6 0 0 Z" fill="#C84B69"/>
+            <path d="M0 0 C14 -8 22 2 14 10 C8 14 2 6 0 0 Z" fill="#D95D7C"/>
+            <circle cx="0" cy="2" r="4.5" fill="#A63250"/>
+          </g>
+
+          <!-- Head -->
+          <ellipse cx="110" cy="84" rx="54" ry="48" fill="url(#${uid}_fur)"/>
+
+          <!-- Snout -->
+          <ellipse cx="110" cy="96" rx="23" ry="17" fill="url(#${uid}_belly)"/>
+
+          <!-- Rosy Cheeks -->
+          <ellipse cx="74" cy="94" rx="11" ry="6.5" fill="#EFA7BE" fill-opacity="${blushOpacity}"/>
+          <ellipse cx="146" cy="94" rx="11" ry="6.5" fill="#EFA7BE" fill-opacity="${blushOpacity}"/>
+
+          <!-- Expressive Eyes with natural blink -->
+          <g class="anim-blink">
+            <circle cx="88" cy="79" r="6.5" fill="#392336"/>
+            <circle cx="86" cy="76.8" r="2.3" fill="#FFFFFF"/>
+            <circle cx="90.5" cy="81" r="1.1" fill="#FFFFFF" fill-opacity="0.7"/>
+
+            <circle cx="132" cy="79" r="6.5" fill="#392336"/>
+            <circle cx="130" cy="76.8" r="2.3" fill="#FFFFFF"/>
+            <circle cx="134.5" cy="81" r="1.1" fill="#FFFFFF" fill-opacity="0.7"/>
+          </g>
+
+          <!-- Cute Eyebrows -->
+          <path d="M81 68 Q88 65 94 68" stroke="#8C5B3C" stroke-width="2" stroke-linecap="round"/>
+          <path d="M126 68 Q132 65 139 68" stroke="#8C5B3C" stroke-width="2" stroke-linecap="round"/>
+
+          <!-- Velvet Nose -->
+          <ellipse cx="110" cy="89" rx="7.5" ry="5.5" fill="#5D353C"/>
+          <ellipse cx="108" cy="87.5" rx="2.4" ry="1.3" fill="#FFFFFF" fill-opacity="0.45"/>
+
+          <!-- Sweet Smile -->
+          <path d="M110 94.5 V100" stroke="#5D353C" stroke-width="2" stroke-linecap="round"/>
+          <path d="M101 100 Q110 108 119 100" stroke="#5D353C" stroke-width="2.1" stroke-linecap="round" fill="none"/>
+
+          <!-- Bouquet -->
+          ${bouquetMarkup}
+        </svg>
+      `;
+    }
+
+    function createRoseSVG({ color = "#C84B69", inner = "#F8C8DC", golden = false, discovered = false } = {}) {
+      const uid = "rs_" + Math.random().toString(36).slice(2, 7);
+      const outerC = golden ? "#E4A853" : color;
+      const midC = golden ? "#F7C97E" : inner;
+      const centerC = golden ? "#C97A2E" : "#9E2F4C";
+      return `
+        <svg class="w-full h-full overflow-visible" viewBox="0 0 110 135" fill="none">
+          <defs>
+            <radialGradient id="${uid}_g" cx="40%" cy="35%" r="65%">
+              <stop offset="0%" stop-color="${midC}"/>
+              <stop offset="65%" stop-color="${outerC}"/>
+              <stop offset="100%" stop-color="${centerC}"/>
+            </radialGradient>
+          </defs>
+          ${(golden || discovered) ? `<circle cx="55" cy="48" r="36" fill="${golden ? '#F7C97E' : '#F8C8DC'}" fill-opacity="0.34"/>` : ''}
+          <!-- Stem -->
+          <path d="M55 76 C53 96 58 114 54 130" stroke="#6E9976" stroke-width="4.2" stroke-linecap="round"/>
+          <!-- Leaves -->
+          <path d="M54 98 C38 92 29 97 26 107 C38 110 49 107 54 98 Z" fill="#7CA883"/>
+          <path d="M56 107 C72 100 82 104 85 114 C72 118 62 115 56 107 Z" fill="#6D9A75"/>
+          <!-- Layered Rose Petals -->
+          <g transform="translate(55, 48)">
+            <ellipse cx="-16" cy="5" rx="18" ry="15" transform="rotate(-24 -16 5)" fill="${outerC}" fill-opacity="0.88"/>
+            <ellipse cx="16" cy="5" rx="18" ry="15" transform="rotate(24 16 5)" fill="${outerC}" fill-opacity="0.88"/>
+            <ellipse cx="0" cy="-14" rx="17" ry="15" fill="${outerC}" fill-opacity="0.92"/>
+            <ellipse cx="0" cy="14" rx="18" ry="14" fill="${outerC}"/>
+            <circle cx="0" cy="0" r="21" fill="url(#${uid}_g)"/>
+            <!-- Inner swirl petals -->
+            <path d="M-12 -3 C-10 -15 9 -16 13 -4 C16 7 4 16 -6 12 C-15 8 -14 -4 -6 -8 C2 -12 10 -5 7 3 C4 9 -5 8 -6 1 C-7 -4 -1 -6 2 -3"
+                  stroke="#FFF8F3" stroke-opacity="0.72" stroke-width="2.1" stroke-linecap="round" fill="none"/>
+            <!-- Dewdrop highlight -->
+            <circle cx="-11" cy="-9" r="2.4" fill="#FFFFFF" fill-opacity="0.75"/>
+          </g>
+        </svg>
+      `;
+    }
+
+    function createPolaroidArt(theme) {
+      const arts = {
+        sunset: `<svg class="w-full h-full" viewBox="0 0 240 200" preserveAspectRatio="xMidYMid slice">
+          <defs><linearGradient id="p_sun" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FAD4E2"/><stop offset="55%" stop-color="#FCE3CD"/><stop offset="100%" stop-color="#EFA7BE"/></linearGradient></defs>
+          <rect width="240" height="200" fill="url(#p_sun)"/>
+          <circle cx="120" cy="108" r="34" fill="#FFF8EE" fill-opacity="0.88"/>
+          <path d="M0 142 Q65 118 125 138 T240 130 V200 H0 Z" fill="#C9879B" fill-opacity="0.65"/>
+          <path d="M0 164 Q85 142 155 162 T240 156 V200 H0 Z" fill="#8C506B" fill-opacity="0.65"/>
+        </svg>`,
+        coffee: `<svg class="w-full h-full" viewBox="0 0 240 200" preserveAspectRatio="xMidYMid slice">
+          <rect width="240" height="200" fill="#FBF0E8"/>
+          <circle cx="120" cy="106" r="56" fill="#F8C8DC" fill-opacity="0.35"/>
+          <ellipse cx="120" cy="144" rx="52" ry="12" fill="#E8D3C6"/>
+          <path d="M84 96 H156 V126 C156 142 140 148 120 148 C100 148 84 142 84 126 Z" fill="#FFFDFB" stroke="#D2B5A8" stroke-width="2"/>
+          <path d="M156 104 C172 104 172 130 156 130" fill="none" stroke="#D2B5A8" stroke-width="4" stroke-linecap="round"/>
+          <path d="M108 82 Q104 70 112 60" stroke="#C84B69" stroke-opacity="0.45" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M126 80 Q122 66 130 56" stroke="#C84B69" stroke-opacity="0.45" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M120 128l-1-1c-4-3.5-6.5-5.8-6.5-8.5 0-2.2 1.7-3.8 3.8-3.8 1.3 0 2.5.6 3.7 1.7 1.2-1.1 2.4-1.7 3.7-1.7 2.1 0 3.8 1.6 3.8 3.8 0 2.7-2.5 5-6.5 8.5l-1 1z" fill="#C84B69"/>
+        </svg>`,
+        garden: `<svg class="w-full h-full" viewBox="0 0 240 200" preserveAspectRatio="xMidYMid slice">
+          <rect width="240" height="200" fill="#FCEAF1"/>
+          <path d="M0 152 Q70 124 140 146 T240 138 V200 H0 Z" fill="#B5D0B9" fill-opacity="0.72"/>
+          <circle cx="72" cy="112" r="18" fill="#E86A89"/><circle cx="72" cy="112" r="9" fill="#F8C8DC"/>
+          <circle cx="122" cy="96" r="22" fill="#C84B69"/><circle cx="122" cy="96" r="11" fill="#F4A3B8"/>
+          <circle cx="168" cy="118" r="17" fill="#EFA7BE"/><circle cx="168" cy="118" r="8" fill="#FFF8F3"/>
+          <path d="M72 130 V168 M122 118 V170 M168 135 V168" stroke="#6E9976" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>`,
+        night: `<svg class="w-full h-full" viewBox="0 0 240 200" preserveAspectRatio="xMidYMid slice">
+          <defs><linearGradient id="p_nt" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1E1130"/><stop offset="100%" stop-color="#48244A"/></linearGradient></defs>
+          <rect width="240" height="200" fill="url(#p_nt)"/>
+          <path d="M174 34 A22 22 0 1 0 190 68 A17 17 0 1 1 174 34Z" fill="#FCE4EC"/>
+          <circle cx="48" cy="48" r="2" fill="#FFF8F3"/><circle cx="84" cy="72" r="1.8" fill="#F8C8DC"/><circle cx="132" cy="44" r="2.2" fill="#FFF8F3"/><circle cx="62" cy="116" r="1.5" fill="#DCCAF5"/><circle cx="195" cy="108" r="2" fill="#FFF8F3"/>
+          <path d="M0 162 Q80 138 150 156 T240 148 V200 H0 Z" fill="#170C24"/>
+        </svg>`,
+        roses: `<svg class="w-full h-full" viewBox="0 0 240 200" preserveAspectRatio="xMidYMid slice">
+          <rect width="240" height="200" fill="#FFF4F7"/>
+          <circle cx="120" cy="100" r="64" fill="#F8C8DC" fill-opacity="0.45"/>
+          <circle cx="120" cy="100" r="38" fill="#EFA7BE" fill-opacity="0.7"/>
+          <path d="M120 122l-2.4-2.2C109 112 103 106.5 103 100c0-5.4 4.2-9.6 9.6-9.6 3.1 0 6 1.5 7.4 3.8 1.4-2.3 4.3-3.8 7.4-3.8 5.4 0 9.6 4.2 9.6 9.6 0 6.5-6 12-14.6 19.8L120 122z" fill="#C84B69"/>
+        </svg>`,
+        letter: `<svg class="w-full h-full" viewBox="0 0 240 200" preserveAspectRatio="xMidYMid slice">
+          <rect width="240" height="200" fill="#F7ECF4"/>
+          <rect x="48" y="54" width="144" height="96" rx="10" fill="#FFFDF9" stroke="#E5C8D4" stroke-width="2"/>
+          <path d="M48 60 L120 108 L192 60" fill="none" stroke="#E5C8D4" stroke-width="2"/>
+          <circle cx="120" cy="108" r="13" fill="#C84B69"/>
+          <path d="M120 113l-1-.9c-2.6-2.4-4.2-4-4.2-5.9 0-1.6 1.2-2.8 2.8-2.8.9 0 1.8.4 2.4 1.2.6-.8 1.5-1.2 2.4-1.2 1.6 0 2.8 1.2 2.8 2.8 0 1.9-1.6 3.5-4.2 5.9l-1 .9z" fill="#FFF8F3"/>
+        </svg>`
+      };
+      return arts[theme] || arts.roses;
+    }
+
+    /* =========================================================================
+       AMBIENT PETALS & PARTICLE BURSTS
+       ========================================================================= */
+    function initAmbientPetals() {
+      const container = document.getElementById("ambient-petals");
+      container.innerHTML = "";
+      if (state.reducedMotion) return;
+      const count = window.innerWidth < 640 ? 10 : 16;
+      const colors = ["#F8C8DC", "#EFA7BE", "#FDE0EA", "#DCCAF5", "#E58EA8"];
+      for (let i = 0; i < count; i++) {
+        const el = document.createElement("div");
+        el.className = "petal-el";
+        const size = 12 + Math.random() * 12;
+        el.style.left = (Math.random() * 100) + "%";
+        el.style.setProperty("--dur", (11 + Math.random() * 10) + "s");
+        el.style.setProperty("--delay", (-Math.random() * 16) + "s");
+        el.style.setProperty("--drift", ((Math.random() - 0.5) * 140) + "px");
+        el.style.setProperty("--spin", ((Math.random() > 0.5 ? 1 : -1) * (220 + Math.random() * 240)) + "deg");
+        const c = colors[i % colors.length];
+        el.innerHTML = `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none"><path d="M12 2C17 6 20 12 16 18C13 22 8 21 6 16C4 11 7 6 12 2Z" fill="${c}" fill-opacity="0.72"/></svg>`;
+        container.appendChild(el);
+      }
+    }
+
+    function spawnBurst(x, y, count = 16, mode = "hearts") {
+      if (state.reducedMotion) return;
+      const layer = document.getElementById("burst-layer");
+      const palette = ["#C84B69", "#EFA7BE", "#F8C8DC", "#DCCAF5", "#F7C97E"];
+      for (let i = 0; i < count; i++) {
+        const node = document.createElement("div");
+        node.style.position = "fixed";
+        node.style.left = x + "px";
+        node.style.top = y + "px";
+        node.style.pointerEvents = "none";
+        const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.5;
+        const dist = 48 + Math.random() * 95;
+        const dx = Math.cos(angle) * dist;
+        const dy = Math.sin(angle) * dist - 28;
+        const color = palette[i % palette.length];
+        const size = 12 + Math.random() * 10;
+        node.innerHTML = mode === "petals"
+          ? `<svg width="${size}" height="${size}" viewBox="0 0 24 24"><path d="M12 2C17 6 20 12 16 18C13 22 8 21 6 16C4 11 7 6 12 2Z" fill="${color}"/></svg>`
+          : `<svg width="${size}" height="${size}" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="${color}"/></svg>`;
+        node.style.transition = "transform 1.05s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.05s ease";
+        node.style.transform = "translate(-50%, -50%) scale(0.4)";
+        node.style.opacity = "1";
+        layer.appendChild(node);
+        requestAnimationFrame(() => {
+          node.style.transform = `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px)) scale(1.1) rotate(${(Math.random() - 0.5) * 140}deg)`;
+          node.style.opacity = "0";
+        });
+        setTimeout(() => node.remove(), 1100);
+      }
+    }
+
+    function triggerHeartRain() {
+      SoundEngine.celebrate();
+      const layer = document.getElementById("burst-layer");
+      const total = state.reducedMotion ? 8 : 28;
+      const palette = ["#C84B69", "#EFA7BE", "#F8C8DC", "#DCCAF5", "#FFF8F3"];
+      for (let i = 0; i < total; i++) {
+        setTimeout(() => {
+          const el = document.createElement("div");
+          el.style.position = "fixed";
+          el.style.top = "-30px";
+          el.style.left = (Math.random() * 96 + 2) + "vw";
+          const sz = 14 + Math.random() * 14;
+          const col = palette[i % palette.length];
+          el.innerHTML = `<svg width="${sz}" height="${sz}" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="${col}"/></svg>`;
+          el.style.transition = "transform 2.6s linear, opacity 2.6s ease";
+          el.style.opacity = "0.95";
+          layer.appendChild(el);
+          requestAnimationFrame(() => {
+            el.style.transform = `translate(${(Math.random() - 0.5) * 110}px, 110vh) rotate(${(Math.random() - 0.5) * 260}deg)`;
+            el.style.opacity = "0.15";
+          });
+          setTimeout(() => el.remove(), 2700);
+        }, i * 75);
+      }
+    }
+
+    /* =========================================================================
+       MODAL SYSTEM (ACCESSIBLE, ESCAPE-TO-CLOSE)
+       ========================================================================= */
+    const modalEl = document.getElementById("story-modal");
+    function openModal({ visualHtml = "", badge = "", title = "", body = "", extraHtml = "" }) {
+      document.getElementById("modal-visual").innerHTML = visualHtml;
+      const badgeEl = document.getElementById("modal-badge");
+      badgeEl.textContent = badge;
+      badgeEl.classList.toggle("hidden", !badge);
+      document.getElementById("modal-title").textContent = title;
+      document.getElementById("modal-body").textContent = body;
+      document.getElementById("modal-extra").innerHTML = extraHtml;
+      modalEl.classList.remove("hidden");
+      document.getElementById("modal-close-btn").focus();
+    }
+
+    function closeModal() {
+      modalEl.classList.add("hidden");
+    }
+
+    /* =========================================================================
+       MINI TEDDY COMPANION REACTIONS
+       ========================================================================= */
+    let companionTimer = null;
+    function companionSay(msg) {
+      const bubble = document.getElementById("mini-companion-bubble");
+      bubble.textContent = msg;
+      bubble.classList.remove("hidden");
+      clearTimeout(companionTimer);
+      companionTimer = setTimeout(() => bubble.classList.add("hidden"), 4200);
+    }
+
+    /* =========================================================================
+       SCENE NAVIGATION & CHOREOGRAPHY
+       ========================================================================= */
+    let finaleTimers = [];
+    function clearFinaleTimers() {
+      finaleTimers.forEach(t => clearTimeout(t));
+      finaleTimers = [];
+    }
+
+    function renderProgressDots() {
+      const wrap = document.getElementById("progress-dots");
+      wrap.innerHTML = "";
+      for (let i = 1; i <= 9; i++) {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.setAttribute("role", "tab");
+        btn.setAttribute("aria-label", `المشهد ${i}: ${loveStory.sceneTitles[i - 1]}`);
+        btn.setAttribute("aria-selected", String(i === state.currentScene));
+        btn.title = loveStory.sceneTitles[i - 1];
+        const isActive = i === state.currentScene;
+        const isVisited = i <= state.maxReached;
+        btn.className = `h-2.5 rounded-full transition-all duration-300 ${
+          isActive
+            ? "w-7 bg-crimson shadow-sm"
+            : isVisited
+              ? "w-2.5 bg-rose hover:bg-crimson/80"
+              : "w-2.5 bg-plum/20 hover:bg-rose/70"
+        }`;
+        btn.addEventListener("click", () => goToScene(i));
+        wrap.appendChild(btn);
+      }
+      document.getElementById("nav-prev-btn").disabled = state.currentScene <= 1;
+      document.getElementById("nav-next-btn").disabled = state.currentScene >= 9;
+    }
+
+    function goToScene(num, withBurst = false) {
+      const target = Math.max(1, Math.min(9, num));
+      if (target === state.currentScene && document.getElementById(`scene-${target}`).classList.contains("active")) return;
+
+      clearFinaleTimers();
+      closeModal();
+
+      const curtain = document.getElementById("bloom-curtain");
+      if (withBurst) {
+        spawnBurst(window.innerWidth / 2, window.innerHeight / 2, 24, "petals");
+      }
+      curtain.classList.add("show");
+
+      setTimeout(() => {
+        document.querySelectorAll(".scene").forEach(s => s.classList.remove("active"));
+        const nextEl = document.getElementById(`scene-${target}`);
+        nextEl.classList.add("active");
+        nextEl.scrollTop = 0;
+
+        state.currentScene = target;
+        if (target > state.maxReached) state.maxReached = target;
+        saveProgress();
+        renderProgressDots();
+
+        // Mini companion visibility (Scenes 2..8, hidden in 1 and 9 for purity)
+        const comp = document.getElementById("mini-companion");
+        const showComp = target >= 2 && target <= 8 && target !== 5;
+        comp.classList.toggle("opacity-0", !showComp);
+        comp.classList.toggle("pointer-events-none", !showComp);
+        comp.classList.toggle("translate-y-4", !showComp);
+
+        // Scene-specific entrance choreography
+        if (target === 2) {
+          const nameEl = document.getElementById("welcome-name-reveal");
+          nameEl.classList.remove("anim-handwrite");
+          void nameEl.offsetWidth;
+          nameEl.classList.add("anim-handwrite");
+          companionSay("أهلًا بيكي في عالمك يا زينة ♡");
+        } else if (target === 3) {
+          companionSay("جرّبي تفتحي كل الورد… فيه سر مستنيكي!");
+        } else if (target === 6) {
+          companionSay("وصّلي النجوم من ١ لـ ٧ وهتشوفي سحر!");
+        } else if (target === 8) {
+          companionSay("اضغطي على البرطمان واسحبي رسالة ♡");
+        } else if (target === 9) {
+          runFinaleSequence();
+        }
+
+        curtain.classList.remove("show");
+      }, 340);
+    }
+
+    /* =========================================================================
+       SCENE 1: OPENING SEQUENCE
+       ========================================================================= */
+    function initOpeningScene() {
+      const mount = document.getElementById("opening-teddy-mount");
+      mount.innerHTML = createTeddySVG({ mood: "idle", showBouquet: true });
+
+      const lines = ["open-line-1", "open-line-2", "open-line-3", "start-journey-btn"];
+      const delays = state.reducedMotion ? [0, 0, 0, 0] : [450, 1450, 2550, 3450];
+      lines.forEach((id, idx) => {
+        setTimeout(() => {
+          const el = document.getElementById(id);
+          if (el) {
+            el.classList.remove("opacity-0", "translate-y-3");
+            el.classList.add("opacity-100", "translate-y-0");
+          }
+          if (idx === 2) {
+            // Bear shyly extends flowers forward
+            mount.innerHTML = createTeddySVG({ mood: "offerFlowers", showBouquet: true });
+            const heartsWrap = document.getElementById("opening-hearts");
+            heartsWrap.innerHTML = `
+              <svg class="w-5 h-5 text-crimson" style="animation: heartRise 2.4s ease-out infinite" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <svg class="w-4 h-4 text-rose" style="animation: heartRise 2.8s ease-out 0.6s infinite" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            `;
+          }
+        }, delays[idx]);
+      });
+
+      document.getElementById("start-journey-btn").addEventListener("click", (e) => {
+        SoundEngine.chime();
+        mount.style.transform = "scale(1.08) translateY(-8px)";
+        spawnBurst(e.clientX || window.innerWidth / 2, e.clientY || window.innerHeight / 2, 22, "petals");
+        setTimeout(() => {
+          mount.style.transform = "";
+          goToScene(2, true);
+        }, 380);
+      });
+    }
+
+    /* =========================================================================
+       SCENE 3: INTERACTIVE ROSE GARDEN
+       ========================================================================= */
+    function renderRoseGarden() {
+      const grid = document.getElementById("roses-grid");
+      grid.innerHTML = "";
+      loveStory.roses.forEach((rose, idx) => {
+        const isFound = state.discoveredRoses.includes(rose.id);
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = `rose-btn glass-card rounded-3xl p-3 sm:p-4 flex flex-col items-center justify-center gap-1.5 ${isFound ? "discovered ring-2 ring-crimson/45" : ""}`;
+        btn.setAttribute("aria-label", `${rose.label}${isFound ? " (تم فتحها)" : ""}`);
+        btn.innerHTML = `
+          <div class="w-20 h-24 sm:w-24 sm:h-28 anim-sway" style="animation-delay:${-idx * 0.65}s">
+            ${createRoseSVG({ color: rose.color, inner: rose.inner, discovered: isFound })}
+          </div>
+          <span class="text-xs font-bold ${isFound ? "text-crimson" : "text-plum/75"}">${rose.label}</span>
+          <span class="text-[11px] ${isFound ? "text-dusty" : "text-plum/45"}">${isFound ? "اتفتحت ♡" : "اضغطي عليها"}</span>
+        `;
+        btn.addEventListener("click", (ev) => {
+          SoundEngine.chime();
+          spawnBurst(ev.clientX || window.innerWidth / 2, ev.clientY || window.innerHeight / 2, 14, "petals");
+          if (!state.discoveredRoses.includes(rose.id)) {
+            state.discoveredRoses.push(rose.id);
+            saveProgress();
+            renderRoseGarden();
+          }
+          openModal({
+            visualHtml: `<div class="w-20 h-24">${createRoseSVG({ color: rose.color, inner: rose.inner, discovered: true })}</div>`,
+            badge: rose.label,
+            title: "رسالة لـ زينة ♡",
+            body: rose.message
+          });
+          if (state.discoveredRoses.length === loveStory.roses.length) {
+            companionSay("واو! فتحتي كل الورد… شوفي الوردة السرية اللي ظهرت!");
+          }
+        });
+        grid.appendChild(btn);
+      });
+
+      const foundCount = state.discoveredRoses.length;
+      const total = loveStory.roses.length;
+      document.getElementById("rose-progress-count").textContent = `${foundCount} / ${total}`;
+      document.getElementById("rose-progress-bar").style.width = `${(foundCount / total) * 100}%`;
+
+      const secretWrap = document.getElementById("secret-rose-wrap");
+      if (foundCount >= total) {
+        secretWrap.classList.remove("hidden");
+        document.getElementById("secret-rose-svg").innerHTML = createRoseSVG({ golden: true, discovered: true });
+      } else {
+        secretWrap.classList.add("hidden");
+      }
+    }
+
+    function initRoseGardenExtras() {
+      document.getElementById("secret-rose-btn").addEventListener("click", (ev) => {
+        SoundEngine.celebrate();
+        spawnBurst(ev.clientX || window.innerWidth / 2, ev.clientY || window.innerHeight / 2, 26, "hearts");
+        state.secretRoseOpened = true;
+        saveProgress();
+        openModal({
+          visualHtml: `<div class="w-24 h-28">${createRoseSVG({ golden: true, discovered: true })}</div>`,
+          badge: "الوردة السرية الذهبية",
+          title: "لسه فيه وردة أخيرة…",
+          body: loveStory.secretRose.message
+        });
+      });
+
+      // Hidden Heart Easter Egg
+      document.getElementById("hidden-heart-btn").addEventListener("click", (ev) => {
+        SoundEngine.sparkle();
+        spawnBurst(ev.clientX, ev.clientY, 18, "hearts");
+        openModal({
+          visualHtml: `<svg class="w-14 h-14 text-crimson anim-heartbeat" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>`,
+          badge: "سرّ صغير لقيتيه!",
+          title: "عينكِ حلوة وبتلاحظ كل حاجة ♡",
+          body: "حتى القلوب المستخبية ورا الورد بتدق باسمك يا زينة."
+        });
+      });
+    }
+
+    /* =========================================================================
+       SCENE 4: THE MAGIC LOVE LETTER (OPEN + REAL DOWNLOADABLE/PRINTABLE FILE)
+       ========================================================================= */
+    function initLoveLetter() {
+      const shell = document.getElementById("envelope-shell");
+      const openBtn = document.getElementById("open-letter-btn");
+      const envView = document.getElementById("envelope-view");
+      const letterView = document.getElementById("unfolded-letter-view");
+      const paraContainer = document.getElementById("letter-paragraphs");
+      document.getElementById("letter-signature").textContent = loveStory.myName;
+
+      function triggerOpenLetter() {
+        if (shell.classList.contains("envelope-open")) return;
+        SoundEngine.paper();
+        shell.classList.add("envelope-open");
+        const rect = shell.getBoundingClientRect();
+        spawnBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 16, "petals");
+
+        setTimeout(() => {
+          envView.classList.add("hidden");
+          document.getElementById("envelope-hint").classList.add("hidden");
+          letterView.classList.remove("hidden");
+          paraContainer.innerHTML = "";
+          loveStory.loveLetter.forEach((line, idx) => {
+            const p = document.createElement("p");
+            p.textContent = line;
+            p.className = "opacity-0 translate-y-2 transition-all duration-700";
+            paraContainer.appendChild(p);
+            setTimeout(() => {
+              p.classList.remove("opacity-0", "translate-y-2");
+              p.classList.add("opacity-100", "translate-y-0");
+            }, state.reducedMotion ? 0 : idx * 240);
+          });
+          state.letterOpened = true;
+          companionSay("الجواب ده مكتوب من القلب فعلاً ♡");
+        }, state.reducedMotion ? 120 : 1050);
+      }
+
+      openBtn.addEventListener("click", triggerOpenLetter);
+      shell.addEventListener("click", triggerOpenLetter);
+      shell.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          triggerOpenLetter();
+        }
+      });
+
+      document.getElementById("close-letter-btn").addEventListener("click", () => {
+        letterView.classList.add("hidden");
+        envView.classList.remove("hidden");
+        document.getElementById("envelope-hint").classList.remove("hidden");
+        shell.classList.remove("envelope-open");
+      });
+
+      // Functional downloadable & printable keepsake letter
+      document.getElementById("save-letter-btn").addEventListener("click", () => {
+        SoundEngine.chime();
+        const htmlDoc = `<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><title>جواب إلى ${loveStory.herName} ♡</title><style>body{font-family:Georgia,serif;background:#FFF8F3;color:#392336;padding:40px 20px;line-height:2;text-align:right}.card{max-width:620px;margin:0 auto;background:#FFFDF9;border:2px solid #F8C8DC;border-radius:24px;padding:40px;box-shadow:0 16px 40px rgba(57,35,54,.1)}h1{color:#C84B69;margin-top:0;font-size:28px}.sig{margin-top:32px;border-top:1px solid #F8C8DC;padding-top:16px;color:#B76E79;font-weight:bold}</style></head><body><div class="card"><h1>إلى ${loveStory.herName} ♡</h1>${loveStory.loveLetter.map(p => `<p>${p}</p>`).join("")}<div class="sig">من الشخص اللي بيحبك جدًا… ${loveStory.myName}</div></div></body></html>`;
+        try {
+          const blob = new Blob([htmlDoc], { type: "text/html;charset=utf-8" });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "letter-for-zeina.html";
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          setTimeout(() => URL.revokeObjectURL(url), 1500);
+        } catch (e) {}
+
+        openModal({
+          badge: "تم حفظ الجواب ♡",
+          title: "الجواب بقى معاكي!",
+          body: "تم تنزيل نسخة أنيقة من الجواب على جهازك، وتقدري كمان تطبعيه مباشرة لو تحبي.",
+          extraHtml: `<button type="button" id="print-letter-now-btn" class="btn-romantic text-sm px-5 py-2.5">طباعة الجواب</button>`
+        });
+        const printBtn = document.getElementById("print-letter-now-btn");
+        if (printBtn) printBtn.addEventListener("click", () => window.print());
+      });
+    }
+
+    /* =========================================================================
+       SCENE 5: THE TEDDY BEAR WORLD
+       ========================================================================= */
+    function initTeddyWorld() {
+      const mount = document.getElementById("world-teddy-mount");
+      const speech = document.getElementById("teddy-speech");
+      const halo = document.getElementById("teddy-halo");
+
+      function setBearState(mood, message, { showBouquet = false, pulseHeart = false } = {}) {
+        mount.innerHTML = createTeddySVG({ mood, showBouquet });
+        speech.textContent = message;
+        halo.style.opacity = "0.95";
+        halo.style.transform = "scale(1.12)";
+        setTimeout(() => {
+          halo.style.opacity = "0.6";
+          halo.style.transform = "scale(0.95)";
+        }, 1200);
+
+        if (pulseHeart) {
+          const heartPath = mount.querySelector(".teddy-chest-heart");
+          if (heartPath) heartPath.classList.add("anim-heartbeat");
+        }
+      }
+
+      mount.innerHTML = createTeddySVG({ mood: "idle" });
+
+      document.getElementById("act-hug-btn").addEventListener("click", (ev) => {
+        SoundEngine.chime();
+        spawnBurst(ev.clientX || window.innerWidth / 2, ev.clientY || window.innerHeight / 2, 16, "hearts");
+        setBearState("hug", "ده حضن مني ليكي… لحد ما أشوفك ♡");
+      });
+
+      document.getElementById("act-rose-btn").addEventListener("click", (ev) => {
+        SoundEngine.sparkle();
+        spawnBurst(ev.clientX || window.innerWidth / 2, ev.clientY || window.innerHeight / 2, 16, "petals");
+        setBearState("shy", "حتى الدبدوب عارف إنك تستاهلي كل الورد.", { showBouquet: true });
+      });
+
+      const triggerHeartbeat = (ev) => {
+        SoundEngine.chime();
+        spawnBurst(ev.clientX || window.innerWidth / 2, ev.clientY || window.innerHeight / 2, 12, "hearts");
+        setBearState("idle", "عارفة؟ فيه قلب هنا بيفرح لمجرد إنه يسمع صوتك.", { pulseHeart: true });
+      };
+      document.getElementById("act-heart-btn").addEventListener("click", triggerHeartbeat);
+      document.getElementById("teddy-heart-hotspot").addEventListener("click", triggerHeartbeat);
+
+      document.getElementById("act-dance-btn").addEventListener("click", (ev) => {
+        SoundEngine.celebrate();
+        spawnBurst(ev.clientX || window.innerWidth / 2, ev.clientY || window.innerHeight / 2, 18, "hearts");
+        setBearState("dance", "رقصة مخصوص عشان أشوف ضحكتك يا زينة!");
+      });
+
+      // Easter Egg #2: The Shy Teddy Nose
+      document.getElementById("teddy-nose-hotspot").addEventListener("click", (ev) => {
+        SoundEngine.sparkle();
+        spawnBurst(ev.clientX, ev.clientY, 10, "hearts");
+        setBearState("shy", "إيه ده! خدودي احمرّت لما لمستي أنفي… ♡");
+      });
+    }
+
+    /* =========================================================================
+       SCENE 6: OUR LITTLE UNIVERSE (INTERACTIVE STARS + HEART CONSTELLATION)
+       ========================================================================= */
+    function initStarrySky() {
+      const bgLayer = document.getElementById("bg-stars-layer");
+      const msgLayer = document.getElementById("message-stars-layer");
+      const constLayer = document.getElementById("constellation-stars-layer");
+      const linesLayer = document.getElementById("constellation-lines-layer");
+      const msgBox = document.getElementById("star-message-box");
+      const statusEl = document.getElementById("constellation-status");
+      const completeBanner = document.getElementById("constellation-complete-banner");
+
+      const svgNS = "http://www.w3.org/2000/svg";
+
+      // Ambient twinkling dust stars
+      for (let i = 0; i < 48; i++) {
+        const c = document.createElementNS(svgNS, "circle");
+        c.setAttribute("cx", String(Math.round(Math.random() * 620 + 10)));
+        c.setAttribute("cy", String(Math.round(Math.random() * 380 + 10)));
+        c.setAttribute("r", (Math.random() * 1.6 + 0.6).toFixed(1));
+        c.setAttribute("fill", i % 3 === 0 ? "#F8C8DC" : "#FFF8F3");
+        c.style.animation = `twinkle ${(2.5 + Math.random() * 3.5).toFixed(1)}s ease-in-out ${(Math.random() * 4).toFixed(1)}s infinite`;
+        bgLayer.appendChild(c);
+      }
+
+      // Romantic Message Stars
+      loveStory.messageStars.forEach((st, idx) => {
+        const g = document.createElementNS(svgNS, "g");
+        g.style.cursor = "pointer";
+        g.setAttribute("tabindex", "0");
+        g.setAttribute("role", "button");
+        g.setAttribute("aria-label", `نجمة رسالة ${idx + 1}`);
+        g.innerHTML = `
+          <circle cx="${st.x}" cy="${st.y}" r="18" fill="transparent"/>
+          <circle cx="${st.x}" cy="${st.y}" r="9" fill="#DCCAF5" fill-opacity="0.22"/>
+          <path d="M${st.x} ${st.y - 7} L${st.x + 2} ${st.y - 2} L${st.x + 7} ${st.y} L${st.x + 2} ${st.y + 2} L${st.x} ${st.y + 7} L${st.x - 2} ${st.y + 2} L${st.x - 7} ${st.y} L${st.x - 2} ${st.y - 2} Z" fill="#FFF8F3"/>
+        `;
+        const showStarMsg = () => {
+          SoundEngine.sparkle();
+          msgBox.textContent = `✦ ${st.text}`;
+          msgBox.classList.remove("hidden");
+        };
+        g.addEventListener("click", showStarMsg);
+        g.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); showStarMsg(); } });
+        msgLayer.appendChild(g);
+      });
+
+      function renderConstellation() {
+        linesLayer.innerHTML = "";
+        constLayer.innerHTML = "";
+
+        const pts = loveStory.heartConstellation;
+        // Draw connected segments up to current step - 1
+        const completedEdges = state.constellationComplete ? pts.length - 1 : Math.max(0, state.constellationStep - 2);
+        for (let i = 0; i < completedEdges; i++) {
+          const a = pts[i];
+          const b = pts[i + 1];
+          const line = document.createElementNS(svgNS, "line");
+          line.setAttribute("x1", a.x);
+          line.setAttribute("y1", a.y);
+          line.setAttribute("x2", b.x);
+          line.setAttribute("y2", b.y);
+          line.setAttribute("stroke", state.constellationComplete ? "#F8C8DC" : "#EFA7BE");
+          line.setAttribute("stroke-width", state.constellationComplete ? "3.2" : "2.4");
+          line.setAttribute("stroke-linecap", "round");
+          line.setAttribute("stroke-opacity", "0.9");
+          linesLayer.appendChild(line);
+        }
+
+        // Draw the 6 unique heart nodes (step 7 returns to node 1 to close the heart)
+        pts.slice(0, 6).forEach((pt) => {
+          const isNext = !state.constellationComplete && (
+            pt.step === state.constellationStep || (state.constellationStep === 7 && pt.step === 1)
+          );
+          const isDone = state.constellationComplete || pt.step < state.constellationStep;
+          const labelNum = (state.constellationStep === 7 && pt.step === 1) ? 7 : pt.step;
+
+          const g = document.createElementNS(svgNS, "g");
+          g.style.cursor = "pointer";
+          g.setAttribute("tabindex", "0");
+          g.setAttribute("role", "button");
+          g.setAttribute("aria-label", `نجمة الكوكبة رقم ${labelNum}`);
+          g.innerHTML = `
+            <circle cx="${pt.x}" cy="${pt.y}" r="22" fill="transparent"/>
+            ${isNext ? `<circle cx="${pt.x}" cy="${pt.y}" r="16" fill="#C84B69" fill-opacity="0.35"><animate attributeName="r" values="12;19;12" dur="1.8s" repeatCount="indefinite"/></circle>` : ''}
+            <circle cx="${pt.x}" cy="${pt.y}" r="${isNext ? 10 : 8}" fill="${isDone || isNext ? '#F8C8DC' : '#DCCAF5'}" stroke="#FFF8F3" stroke-width="1.8"/>
+            <text x="${pt.x}" y="${pt.y + 4}" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#392336">${labelNum}</text>
+          `;
+
+          const handleTap = () => {
+            if (state.constellationComplete) return;
+            const expectedPt = state.constellationStep === 7 ? 1 : state.constellationStep;
+            if (pt.step === expectedPt) {
+              SoundEngine.sparkle();
+              state.constellationStep++;
+              if (state.constellationStep > 7) {
+                completeConstellation();
+              } else {
+                statusEl.textContent = state.constellationStep === 7
+                  ? "الخطوة الأخيرة: ارجعي للنجمة 1 عشان تقفلي القلب!"
+                  : `الخطوة التالية: النجمة رقم ${state.constellationStep}`;
+                renderConstellation();
+              }
+            } else {
+              msgBox.textContent = `اضغطي على النجمة المضيئة رقم ${state.constellationStep === 7 ? 7 : state.constellationStep} عشان نرسم القلب ♡`;
+              msgBox.classList.remove("hidden");
+            }
+          };
+          g.addEventListener("click", handleTap);
+          g.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); handleTap(); } });
+          constLayer.appendChild(g);
+        });
+      }
+
+      function completeConstellation() {
+        state.constellationComplete = true;
+        state.constellationStep = 8;
+        SoundEngine.celebrate();
+        statusEl.textContent = "اكتملت كوكبة القلب ♡";
+        completeBanner.classList.remove("hidden");
+        msgBox.textContent = "✦ حتى النجوم اجتمعت عشان تقولك… بحبك ♡";
+        msgBox.classList.remove("hidden");
+        renderConstellation();
+        spawnBurst(window.innerWidth / 2, window.innerHeight / 2, 24, "hearts");
+      }
+
+      document.getElementById("auto-constellation-btn").addEventListener("click", () => {
+        if (state.constellationComplete) return;
+        completeConstellation();
+      });
+
+      renderConstellation();
+    }
+
+    /* =========================================================================
+       SCENE 7: THE MEMORY ALBUM (POLAROID + LIGHTBOX + OPTIONAL LOCAL PHOTO PREVIEW)
+       ========================================================================= */
+    function renderMemoryAlbum() {
+      const grid = document.getElementById("polaroid-grid");
+      grid.innerHTML = "";
+      loveStory.memories.forEach((mem, idx) => {
+        const card = document.createElement("button");
+        card.type = "button";
+        card.className = "polaroid-card text-right focus:outline-none";
+        card.style.transform = `rotate(${mem.tilt}deg)`;
+        card.setAttribute("aria-label", `عرض الذكرى ${idx + 1}`);
+        card.innerHTML = `
+          <!-- Washi tape accent -->
+          <div class="w-16 h-4 bg-blush/60 absolute -top-2 left-1/2 -translate-x-1/2 rounded-sm rotate-[-2deg]"></div>
+          <div class="w-full aspect-[6/5] rounded-sm overflow-hidden bg-cream mb-3 border border-blush/30">
+            ${mem.photoUrl
+              ? `<img src="${mem.photoUrl}" alt="${mem.caption}" class="w-full h-full object-cover"/>`
+              : createPolaroidArt(mem.theme)}
+          </div>
+          <p class="font-display text-base sm:text-lg text-plum leading-snug">${mem.caption}</p>
+          <p class="text-xs text-dusty mt-1">${mem.note}</p>
+        `;
+        card.addEventListener("click", () => {
+          SoundEngine.chime();
+          openModal({
+            visualHtml: `<div class="w-full max-w-xs aspect-[6/5] rounded-xl overflow-hidden shadow-md border border-blush/50">${mem.photoUrl ? `<img src="${mem.photoUrl}" alt="${mem.caption}" class="w-full h-full object-cover"/>` : createPolaroidArt(mem.theme)}</div>`,
+            badge: `ذكرى #${idx + 1}`,
+            title: mem.caption,
+            body: mem.note
+          });
+        });
+        grid.appendChild(card);
+      });
+    }
+
+    function initMemoryAlbumUpload() {
+      const input = document.getElementById("custom-photo-input");
+      let nextSlot = 0;
+      input.addEventListener("change", (e) => {
+        const file = e.target.files && e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+          loveStory.memories[nextSlot % loveStory.memories.length].photoUrl = reader.result;
+          nextSlot++;
+          renderMemoryAlbum();
+          SoundEngine.sparkle();
+          companionSay("الصورة شكلها يجنن جوه الألبوم ♡");
+        };
+        reader.readAsDataURL(file);
+        input.value = "";
+      });
+    }
+
+    /* =========================================================================
+       SCENE 8: THE JAR OF LOVE NOTES + PLAYFUL "ممنوع تدوسي هنا!" EASTER EGG
+       ========================================================================= */
+    function initLoveJar() {
+      const jarBtn = document.getElementById("glass-jar-btn");
+      const jarSvg = document.getElementById("glass-jar-svg");
+      const cork = document.getElementById("jar-cork");
+      const card = document.getElementById("active-note-card");
+      const catBadge = document.getElementById("note-category-badge");
+      const noteDisplay = document.getElementById("note-text-display");
+      const countEl = document.getElementById("notes-opened-count");
+      document.getElementById("notes-total-label").textContent = String(loveStory.loveNotes.length);
+
+      function updateNoteCount() {
+        countEl.textContent = `فتحتي ${state.openedNoteIndices.length} من ${loveStory.loveNotes.length} رسالة`;
+      }
+      updateNoteCount();
+
+      function pickNote(ev) {
+        SoundEngine.paper();
+        jarSvg.classList.remove("anim-jar-wiggle");
+        void jarSvg.offsetWidth;
+        jarSvg.classList.add("anim-jar-wiggle");
+        cork.style.transform = "translateY(-10px) rotate(-6deg)";
+        setTimeout(() => { cork.style.transform = ""; }, 550);
+
+        if (ev && ev.clientX) spawnBurst(ev.clientX, ev.clientY, 12, "hearts");
+
+        // Prefer unopened notes first
+        const unopened = loveStory.loveNotes
+          .map((_, i) => i)
+          .filter(i => !state.openedNoteIndices.includes(i));
+        const pool = unopened.length > 0 ? unopened : loveStory.loveNotes.map((_, i) => i);
+        const chosenIdx = pool[Math.floor(Math.random() * pool.length)];
+
+        if (!state.openedNoteIndices.includes(chosenIdx)) {
+          state.openedNoteIndices.push(chosenIdx);
+          saveProgress();
+        }
+        updateNoteCount();
+
+        const note = loveStory.loveNotes[chosenIdx];
+        card.style.transform = "scale(0.95) translateY(8px)";
+        card.style.opacity = "0.5";
+        setTimeout(() => {
+          catBadge.textContent = note.cat;
+          noteDisplay.textContent = note.text;
+          card.style.transform = "scale(1) translateY(0)";
+          card.style.opacity = "1";
+        }, 200);
+      }
+
+      jarBtn.addEventListener("click", pickNote);
+      document.getElementById("another-note-btn").addEventListener("click", pickNote);
+
+      // Easter Egg #3: Playful "ممنوع تدوسي هنا!" Button
+      const forbiddenBtn = document.getElementById("forbidden-love-btn");
+      const shifts = [
+        { x: 38, y: -12, label: "قولتلك ممنوع! 🙈" },
+        { x: -42, y: 10, label: "برضه مصممة؟" }
+      ];
+      forbiddenBtn.addEventListener("click", (ev) => {
+        if (state.curiousAttempts < shifts.length) {
+          const s = shifts[state.curiousAttempts];
+          forbiddenBtn.style.transform = `translate(${s.x}px, ${s.y}px)`;
+          forbiddenBtn.textContent = s.label;
+          state.curiousAttempts++;
+          SoundEngine.sparkle();
+        } else {
+          forbiddenBtn.style.transform = "translate(0, 0)";
+          forbiddenBtn.textContent = "اكتشفتي السرّ ♡";
+          SoundEngine.celebrate();
+          spawnBurst(ev.clientX || window.innerWidth / 2, ev.clientY || window.innerHeight / 2, 20, "hearts");
+          openModal({
+            badge: "مفاجأة الفضول اللطيف",
+            title: "كنت عارف!",
+            body: "كنت عارف إنك فضولية… ودي حاجة بحبها فيكي ♡"
+          });
+        }
+      });
+    }
+
+    /* =========================================================================
+       SCENE 9: THE GRAND FINALE
+       ========================================================================= */
+    function populateFinaleCornerRoses() {
+      const wrap = document.getElementById("finale-corner-roses");
+      wrap.innerHTML = `
+        <div class="absolute top-12 right-3 sm:right-8 w-20 h-24 opacity-80 anim-sway">${createRoseSVG({ color: "#E86A89", inner: "#F8C8DC", discovered: true })}</div>
+        <div class="absolute top-16 left-3 sm:left-8 w-20 h-24 opacity-80 anim-sway" style="animation-delay:-2s">${createRoseSVG({ color: "#C84B69", inner: "#F4A3B8", discovered: true })}</div>
+        <div class="absolute bottom-20 right-5 sm:right-14 w-24 h-28 opacity-85 anim-sway" style="animation-delay:-1s">${createRoseSVG({ color: "#D95F7D", inner: "#FCE0E8", discovered: true })}</div>
+        <div class="absolute bottom-20 left-5 sm:left-14 w-24 h-28 opacity-85 anim-sway" style="animation-delay:-3s">${createRoseSVG({ golden: true, discovered: true })}</div>
+      `;
+    }
+
+    function runFinaleSequence() {
+      clearFinaleTimers();
+      const intro = document.getElementById("finale-intro");
+      const reveal = document.getElementById("finale-reveal");
+      const stepText = document.getElementById("finale-step-text");
+      const heart = document.getElementById("finale-glow-heart");
+      const bloomRing = document.getElementById("finale-bloom-ring");
+      const smileMsg = document.getElementById("finale-smile-message");
+      const smileBtn = document.getElementById("finale-smile-btn");
+      const teddyMount = document.getElementById("finale-teddy-mount");
+
+      intro.classList.remove("hidden");
+      reveal.classList.add("hidden");
+      reveal.classList.remove("flex");
+      smileMsg.classList.add("hidden");
+      smileBtn.classList.remove("hidden");
+      bloomRing.style.opacity = "0";
+      heart.style.transform = "scale(1)";
+      stepText.textContent = "استني…";
+
+      populateFinaleCornerRoses();
+      teddyMount.innerHTML = createTeddySVG({ mood: "offerFlowers", bigBouquet: true });
+
+      const stepMs = state.reducedMotion ? [100, 200, 300] : [1300, 2600, 4100];
+
+      finaleTimers.push(setTimeout(() => {
+        stepText.textContent = "قبل ما تمشي…";
+        heart.style.transform = "scale(1.18)";
+      }, stepMs[0]));
+
+      finaleTimers.push(setTimeout(() => {
+        stepText.textContent = "في حاجة مهمة جدًا عايز أقولها.";
+        heart.style.transform = "scale(1.42)";
+      }, stepMs[1]));
+
+      finaleTimers.push(setTimeout(() => {
+        SoundEngine.celebrate();
+        intro.classList.add("hidden");
+        reveal.classList.remove("hidden");
+        reveal.classList.add("flex", "anim-reveal");
+        bloomRing.style.opacity = "1";
+        spawnBurst(window.innerWidth / 2, window.innerHeight / 2, 30, "petals");
+      }, stepMs[2]));
+    }
+
+    function initFinaleInteractions() {
+      const smileBtn = document.getElementById("finale-smile-btn");
+      const smileMsg = document.getElementById("finale-smile-message");
+      const teddyMount = document.getElementById("finale-teddy-mount");
+
+      smileBtn.addEventListener("click", (ev) => {
+        SoundEngine.celebrate();
+        teddyMount.innerHTML = createTeddySVG({ mood: "celebrate", bigBouquet: true });
+        smileBtn.classList.add("hidden");
+        smileMsg.classList.remove("hidden");
+        spawnBurst(ev.clientX || window.innerWidth / 2, ev.clientY || window.innerHeight / 2, 32, "hearts");
+        triggerHeartRain();
+      });
+
+      document.getElementById("replay-story-btn").addEventListener("click", () => {
+        SoundEngine.chime();
+        goToScene(1, true);
+      });
+
+      // Touch anywhere on Finale sky to spawn soft hearts
+      document.getElementById("scene-9").addEventListener("click", (ev) => {
+        if (ev.target.closest("button")) return;
+        spawnBurst(ev.clientX, ev.clientY, 8, "hearts");
+      });
+    }
+
+    /* =========================================================================
+       BOOT & GLOBAL BINDINGS
+       ========================================================================= */
+    function initApp() {
+      loadProgress();
+      document.getElementById("site-title-badge").textContent = loveStory.siteTitle;
+      document.getElementById("mini-teddy-mount").innerHTML = createTeddySVG({ mood: "smile", mini: true });
+
+      initAmbientPetals();
+      initOpeningScene();
+      renderRoseGarden();
+      initRoseGardenExtras();
+      initLoveLetter();
+      initTeddyWorld();
+      initStarrySky();
+      renderMemoryAlbum();
+      initMemoryAlbumUpload();
+      initLoveJar();
+      initFinaleInteractions();
+      renderProgressDots();
+
+      // Delegate [data-goto] buttons
+      document.querySelectorAll("[data-goto]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          SoundEngine.chime();
+          goToScene(Number(btn.getAttribute("data-goto")), true);
+        });
+      });
+
+      // Navigation controls
+      document.getElementById("nav-prev-btn").addEventListener("click", () => goToScene(state.currentScene - 1));
+      document.getElementById("nav-next-btn").addEventListener("click", () => goToScene(state.currentScene + 1));
+      document.getElementById("brand-home-btn").addEventListener("click", () => goToScene(1));
+      document.getElementById("sound-toggle-btn").addEventListener("click", () => SoundEngine.toggle());
+      document.getElementById("heart-rain-btn").addEventListener("click", triggerHeartRain);
+
+      // Mini companion tap
+      const companionMessages = [
+        "إنتِ منوّرة المكان يا زينة ♡",
+        "كل تفصيلة هنا اتعملت بحب عشانك.",
+        "اضغطي على أي حاجة تلمع حواليكي!",
+        "ضحكتك أحلى حاجة في الدنيا ♡"
+      ];
+      let compIdx = 0;
+      document.getElementById("mini-companion-btn").addEventListener("click", (ev) => {
+        SoundEngine.sparkle();
+        spawnBurst(ev.clientX, ev.clientY, 8, "hearts");
+        companionSay(companionMessages[compIdx % companionMessages.length]);
+        compIdx++;
+      });
+
+      // Modal dismiss
+      document.getElementById("modal-close-btn").addEventListener("click", closeModal);
+      modalEl.addEventListener("click", (e) => {
+        if (e.target === modalEl) closeModal();
+      });
+
+      // Keyboard navigation (RTL aware + Escape)
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closeModal();
+          return;
+        }
+        if (!modalEl.classList.contains("hidden")) return;
+        if (e.key === "ArrowLeft") goToScene(state.currentScene + 1);
+        if (e.key === "ArrowRight") goToScene(state.currentScene - 1);
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", initApp);
+  </script>
+</body>
+</html>
